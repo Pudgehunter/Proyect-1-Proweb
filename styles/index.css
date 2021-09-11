@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+body{
+    font-family: 'Cantarell', sans-serif;
+}
+
 h2{
     font-family: 'Cantarell', sans-serif;
     padding-top: 1em;
@@ -16,6 +20,15 @@ h2{
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+}
+
+.menu--scroll {
+    background-color: rgba(255, 255, 255, 0.644);
+    border-bottom: solid 1px rgb(126, 126, 126);
+}
+
+.menu--scroll .menu__item a {
+    color:rgb(121, 121, 121);
 }
 
 .menu__logo{
@@ -46,7 +59,7 @@ h2{
 }
 .menu__item a{
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
+
     font-weight: bold;
     text-decoration: none;
     color:#FFFFFF;
@@ -108,7 +121,6 @@ h2{
 
 .main__text{
     padding: 20px;
-    font-size: 8px;
 }
 
 .main__context--list{
@@ -117,12 +129,11 @@ h2{
     justify-content: space-between;
 }
 
-.main__context--text1, .main__context--text2{
-    font-size: 12px;
+.main__context--first-text, .main__context--second-text{
     padding-left: 2em;
     padding-right: 2em;
 }
-.main__context--text1{
+.main__context--first-text{
     width: 278;
     height: 97;
 }
