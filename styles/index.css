@@ -14,12 +14,25 @@ h2{
     color: #0B8C00;
 }
 
+a{
+    font-family: 'Open Sans', sans-serif;
+    color: #0B8C00;
+    font-weight: bold;
+}
+
+.text-center{
+    text-align: center;
+}
+
 .menu{
     position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    padding-top: 15px;
+    padding-right: 30px;
+    padding-bottom: 15px;
 }
 
 .menu--scroll {
@@ -31,7 +44,7 @@ h2{
     color:rgb(121, 121, 121);
 }
 
-.menu__logo{
+.menu__logo, .footer__logo{
     padding-left: 3em;
     display: flex;
     flex-direction: row;
@@ -55,11 +68,10 @@ h2{
     list-style: none;
     text-decoration: none;
     font-size: 1em;
-    margin: 15px;
+    padding: 15px;
 }
 .menu__item a{
     font-family: 'Open Sans', sans-serif;
-
     font-weight: bold;
     text-decoration: none;
     color:#FFFFFF;
@@ -67,8 +79,18 @@ h2{
 
 .menu__item--button{
     list-style: none;
-    margin-left: 15px;
-    margin-right: 100px;
+    text-decoration: none;
+    border: solid;
+    padding: 10px;
+    color: white;
+}
+
+.menu__item--button a{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
 }
 
 .landing--page{
@@ -98,22 +120,25 @@ h2{
     font-size: 96px;
     text-shadow: 0px 4px 4px #00000025;
 }
-
-.landing--page__button--reserve{
+.landing--page__list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 30px;
+    width: 550px;
+}
+.landing--page__list--button{
+    color: white;
     display: flex;
     justify-content: center;
+    text-decoration: none;
+    border: solid;
+    width: 235px;
+    padding: 15px;
 }
 
-.landing--page__button--know--us{
-    display: flex;
-    justify-content: center;
-}
-
-.main{
-    
-}
 .main__context{
-    padding-left: 5em;
+    padding-left: 4em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -125,21 +150,70 @@ h2{
 
 .main__context--list{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    width: 700px;
 }
 
-.main__context--first-text, .main__context--second-text{
-    padding-left: 2em;
-    padding-right: 2em;
+
+
+.main__context--list h2{
+    padding-bottom: 2em;
 }
-.main__context--first-text{
-    width: 278;
-    height: 97;
+
+.main__context--first-text, .main__context--second-text, .main__context--third-text{
+    margin: 2%;
+}
+
+.main__context--img{
+    position: relative;
+    top: -50px;
+    right: 50px;
+}
+
+.main__context--img img{
+    box-shadow: 4px 4px 10px #00000025;
+}
+
+.gallery{
+    height: 867px;
+}
+
+.gallery h2{
+    background-color: #CEE6CC;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    line-height: 97.2%;
+    letter-spacing: 0.2em;
+    padding-top: 1.5em;
+}
+
+.gallery__img{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: -100px;
+    margin-left: 4em;
+}
+
+.gallery__img img{
+    margin: 1em;
+}
+
+.gallery a{
+    display: flex;
+    justify-content: center;
+    margin-top: -5em;
 }
 
 .main__restaurant{
     display: flex;
     flex-direction: row;
-    background-color: 73ED6A;
+    background-color: #CEE6CC;
+}
+
+.footer{
+    background-color: #CEE6CC;
 }

@@ -16,6 +16,7 @@
         rel="stylesheet">
     <!--CSS-->
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/mobile.css">
 </head>
 
 <body>
@@ -55,9 +56,11 @@
         </nav>
         <article class="landing--page">
             <p class="landing--page__subtitle">VERDURAS FRESCAS EN TU HOGAR</p>
-            <p class="landing--page__highlight">Productos Japonés de Alta Calidad</P>
-            <a href="#" class="landing--page__button--reserve">RESERVAR PRODUCTOS</a>
-            <a href="#" class="landing--page__button--know--us">CONOCENOS</a>
+            <p class="landing--page__highlight">Productos Japoneses de Alta Calidad</P>
+                <div class="landing--page__list">
+                    <a href="#" class="landing--page__list--button">RESERVAR PRODUCTOS</a>
+                    <a href="#" class="landing--page__list--button">CONOCENOS</a>
+                </div>
             <!--<img class="landing--page__image--absolute" src="./img/landingPage--img.png" alt="asdf">-->
         </article>
     </header>
@@ -67,7 +70,7 @@
             <!--Context-->
             <div class="main__context">
                 <div>
-                    <h2>Nuestra misión</h2>
+                    <h2 class="text-center">Nuestra misión</h2>
                     <div class="main__context--list">
                         <p class="main__context--first-text">
                             Se va a abrir una granja en Cali - Colombia, la cual tendrá verduras de buena calidad y
@@ -81,26 +84,34 @@
                             - Darles mejores opciones de verdura y frutas a los caleños <br>
                             - Innovar vendiendo productos salidos directamente de la granja
                         </p>
+                        <a href="#" class="main__context--third-text">NUESTROS PRODUCTOS</a>
                     </div>
                 </div>
-                <figure>
+                <figure class="main__context--img">
                     <img src="./img/main--img.png">
                 </figure>
             </div>
 
             <!--Gallery-->
-            <p class="gallery">Mira Nuestros Productos</p>
-            <figure>
-
-            </figure>
-            <button class="gallery__button">VER MÁS</button>
-
+            <div class="gallery">
+                <h2 class="text-center">Mira Nuestros Productos</h2>
+                <figure class="gallery__img">
+                    <img src="./img/gallery/apple.png" alt="manzana">
+                    <img src="./img/gallery/carrot.png" alt="zanahoria">
+                    <img src="./img/gallery/eggplant.png" alt="berenjena">
+                    <img src="./img/gallery/lemon.png" alt="limón">
+                    <img src="./img/gallery/olive.png" alt="aceitunas">
+                    <img src="./img/gallery/rice.png" alt="arroz">
+                </figure>
+                <a href="#" class="gallery__button">VER MÁS</a>
+            </div>
+            
             <!--Restaurant-->
             <div class="main__restaurant">
                 <figure>
                     <img src="./img/main--restaurant.png" alt="A girl drinking">
                 </figure>
-                <div>
+                <div class="main__restaurant-text">
                     <h2>
                         Restaurantes
                     </h2>
@@ -128,9 +139,12 @@
         </article>
     </section>
 
-    <footer>
-        <div class="Logo">
-
+    <footer class="footer">
+        <div class="footer__logo">
+            <figure>
+                <img src="./img/logo.png" alt="logoMagokoro">
+            </figure>
+            <p class="menu__logo--name">MAGOKORO</p>
         </div>
         <div class="footer--menu">
             <ul>
