@@ -12,12 +12,15 @@ h2{
     font-family: 'Cantarell', sans-serif;
     padding-top: 1em;
     color: #0B8C00;
+    font-weight: 400;
 }
 
 a{
     font-family: 'Open Sans', sans-serif;
     color: #0B8C00;
     font-weight: bold;
+    text-decoration: none;
+    font-size: 0.75em;
 }
 
 .text-center{
@@ -152,6 +155,8 @@ p{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    height: 375px;
 }
 
 .main__text{
@@ -163,26 +168,13 @@ p{
     width: 700px;
 }
 
-
-
 .main__context--list h2{
     padding-bottom: 2em;
 }
 
-.main__context--first-text, .main__context--second-text {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
 
-.main__context--img{
-    position: relative;
-    top: -50px;
-    right: 50px;
-}
 
-.main__context--img img{
-    box-shadow: 4px 4px 10px #00000025;
-}
+
 
 .gallery{
     height: 867px;
@@ -221,6 +213,8 @@ p{
     display: flex;
     flex-direction: row;
     background-color: #CEE6CC;
+    height:325px;
+    margin-bottom: 5%;
 }
 
 .main__restaurant-text{
@@ -234,12 +228,12 @@ p{
     padding-bottom: 20px;
 }
 
-.newsletter{
-    height: 100px;
-    margin: 1em;
+.main__restaurant-img img{
+    position: relative;
 }
 
-.newsletter__form{
+
+.footer__newsletter-form{
     margin-top: 1em;
     display: flex;
     justify-content: center;
