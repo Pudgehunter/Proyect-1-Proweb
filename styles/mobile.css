@@ -1,5 +1,121 @@
-@media all and (max-width:768px){
-    .text-center{
-        background-color: red;
+@media all and (max-width:868px){    
+    
+    .menu{
+        width: 100px;
     }
+
+    .menu__list{
+        display: none;
+        flex-direction: column;
+    }
+
+    .menu--scroll {
+        display: none;
+    }
+    
+
+    h2, p, a{
+        text-align: center;
+    }
+    
+    .landing--page{
+        background-image: url(../img/landingpage--img.png);
+        width: 100%;
+        padding-left: 5em;
+        color: white;  
+    }
+
+    .landing--page__subtitle{
+        display: none;
+    }
+
+    .landing--page__highlight{
+        font-family: 'Cantarell', sans-serif;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        width: 50%;
+        padding-top: 250px;
+        font-size: 4em;
+        color: white;
+        text-shadow: 0px 4px 4px #00000025;
+    }
+
+    .main__restaurant{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #CEE6CC;
+    }
+
+    .landing--page__list{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 40%;
+        height: 150px;
+        padding-top: 30px;
+    }
+
+    .main__context{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    .main__context--img{
+        height: auto;
+        width: auto;
+    }
+    .main__context--img img{
+
+        box-shadow: none;
+    }
+
+    .main__context-text{
+        align-items: center;
+    }
+
+    .main__context--list{
+        width: 100%;
+    }
+
+    .main__text{
+        margin: 5%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .main__restaurant{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #CEE6CC;
+        height:100%;
+    }
+
+    .main__restaurant-text{
+        display: flex;
+        flex-direction: column;
+        order: 0;
+    }
+
+    .main__restaurant-img{
+        display: flex;
+        order: 1;
+    }
+
+    .gallery{
+        height: 100%;
+    }
+
+    .gallery__img{
+        display: flex;
+        flex-direction: column;
+    }
+
 }

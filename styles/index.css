@@ -56,12 +56,12 @@ p{
 }
 
 .menu--scroll {
-    background-color: rgba(255, 255, 255, 0.644);
-    border-bottom: solid 1px rgb(126, 126, 126);
+    background-color: #0B8C0025;
+    border-bottom: solid 1px #0B8C00;
 }
 
-.menu--scroll .menu__item a {
-    color:rgb(121, 121, 121);
+.menu--scroll .menu__logo--name{
+    display: none;
 }
 
 .menu__logo {
@@ -118,8 +118,7 @@ p{
     width: auto;
     height: 724px;
     padding-left: 5em;
-    color: white;
-    
+    color: white;  
 }
 
 .landing--page__subtitle{
@@ -134,7 +133,7 @@ p{
 
 .landing--page__highlight{
     font-family: 'Cantarell', sans-serif;
-    width: 872px;
+    width: 80%;
     height: 186px;
     line-height: 97.2%;
     letter-spacing: -8px;
@@ -216,10 +215,6 @@ p{
     margin: 1em;
 }
 
-
-
-
-
 .main__restaurant-text{
     text-align: right;
     margin: 4%;
@@ -236,9 +231,6 @@ p{
     padding-bottom: 20px;
 }
 
-.main__restaurant-img img{
-    position: relative;
-}
 
 
 .footer__newsletter-form{
@@ -260,8 +252,6 @@ p{
     width: 100px;
     color: white;
 }
-
-
 
 .footer{
     background-color: #CEE6CC;
