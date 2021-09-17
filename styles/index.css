@@ -11,6 +11,7 @@ body{
 h2{
     font-family: 'Cantarell', sans-serif;
     padding-top: 1em;
+    padding-bottom: 0.75em;
     color: #0B8C00;
     font-weight: 400;
 }
@@ -18,7 +19,7 @@ h2{
 a{
     font-family: 'Open Sans', sans-serif;
     color: #0B8C00;
-    font-weight: bold;
+    font-weight: 400;
     text-decoration: none;
     font-size: 0.75em;
 }
@@ -39,6 +40,7 @@ ul{
 p{
     font-family: 'Open Sans', sans-serif;
     font-size: 0.75em;
+    color: #555555;
 }
 
 
@@ -126,6 +128,7 @@ p{
     font-weight: bold;
     padding-top: 150px;
     padding-left: 10px;
+    color: white;
     text-shadow: 0px 4px 4px #00000025;
 }
 
@@ -136,6 +139,7 @@ p{
     line-height: 97.2%;
     letter-spacing: -8px;
     font-size: 96px;
+    color: white;
     text-shadow: 0px 4px 4px #00000025;
 }
 .landing--page__list{
@@ -193,37 +197,26 @@ p{
 }
 
 .gallery{
-    height: 867px;
+    height: 595px;
 }
 
 .gallery h2{
-    background-color: #CEE6CC;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    font-size: 50px;
-    line-height: 97.2%;
-    letter-spacing: 0.2em;
-    padding-top: 1.5em;
+    padding-top: 0;
+    margin: 4%;
 }
 
 .gallery__img{
     display: flex;
     flex-direction: row;
-    position: relative;
-    top: -100px;
-    margin-left: 4em;
+    justify-content: space-around;
+    margin: 0;
 }
 
 .gallery__img img{
     margin: 1em;
 }
 
-.gallery a{
-    display: flex;
-    justify-content: center;
-    margin-top: -5em;
-}
+
 
 
 
