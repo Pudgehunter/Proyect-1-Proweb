@@ -23,6 +23,11 @@ a{
     font-size: 0.75em;
 }
 
+.main__text{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .text-center{
     text-align: center;
 }
@@ -151,7 +156,6 @@ p{
 }
 
 .main__context{
-    padding-left: 4em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -159,9 +163,17 @@ p{
     height: 375px;
 }
 
-.main__text{
-    padding-top: 20px;
-    padding-bottom: 20px;
+.main__restaurant{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #CEE6CC;
+    height:318px;
+}
+
+.main__context h2 {
+    padding-top: 0;
 }
 
 .main__context--list{
@@ -172,9 +184,13 @@ p{
     padding-bottom: 2em;
 }
 
+.main__context--img{
+    height: 375px;
+}
 
-
-
+.main__context--img img{
+    box-shadow: 4px 4px 10px #00000025;
+}
 
 .gallery{
     height: 867px;
@@ -209,16 +225,15 @@ p{
     margin-top: -5em;
 }
 
-.main__restaurant{
-    display: flex;
-    flex-direction: row;
-    background-color: #CEE6CC;
-    height:325px;
-    margin-bottom: 5%;
-}
+
 
 .main__restaurant-text{
     text-align: right;
+    margin: 4%;
+}
+
+.main__context-text{
+    text-align: left;
     margin: 4%;
 }
 
@@ -239,9 +254,26 @@ p{
     justify-content: center;
 }
 
+.footer__newsletter-input{
+    width: 300px;
+    height: 30px;
+}
+
+.footer__button{
+    background: #0B8C00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    color: white;
+}
+
+
+
 .footer{
     background-color: #CEE6CC;
 }
+
 
 .footer__menu{
     display: flex;
