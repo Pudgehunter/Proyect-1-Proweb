@@ -1,12 +1,14 @@
+
 @media all and (max-width:868px){    
     
     .menu{
-        width: 100px;
+        max-width: 100%; 
+        /* background-color: blue;  */
     }
-
+    
     .menu__list{
         display: none;
-        flex-direction: column;
+        max-width: 100%; 
     }
 
     .menu--scroll {
@@ -19,10 +21,14 @@
     }
     
     .landing--page{
-        background-image: url(../img/landingpage--img.png);
-        width: 100%;
-        padding-left: 5em;
-        color: white;  
+        /* width: 100%; */
+        /* padding-left: 5em; */
+        color: yellow; 
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        /* padding: 0 2em;  */
+
     }
 
     .landing--page__subtitle{
@@ -30,15 +36,19 @@
     }
 
     .landing--page__highlight{
+        margin-top: 2em;
+        /* background-color:green;  */
+        padding: 0 .5em;
         font-family: 'Cantarell', sans-serif;
         display: flex;
-        align-items: center;
+        /* align-items: center; */
         text-align: center;
-        width: 50%;
-        padding-top: 250px;
-        font-size: 4em;
+        width: 100%;
+        /* padding-top: 250px; */
+        font-size: 3.5em;
         color: white;
         text-shadow: 0px 4px 4px #00000025;
+        margin-bottom: 1em;
     }
 
     .main__restaurant{
@@ -50,12 +60,15 @@
     }
 
     .landing--page__list{
+        /* background-color: purple; */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin-top: 40%;
+        align-items: center;
+        width: 100%;
+        /* margin-top: 40%; */
         height: 150px;
-        padding-top: 30px;
+        /* padding-top: 30px; */
     }
 
     .main__context{
@@ -107,6 +120,7 @@
     .main__restaurant-img{
         display: flex;
         order: 1;
+        
     }
 
     .gallery{
