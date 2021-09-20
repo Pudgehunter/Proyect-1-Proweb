@@ -3,6 +3,7 @@
     
     .menu{
         max-width: 100%; 
+        z-index: 8;
         /* background-color: blue;  */
     }
     
