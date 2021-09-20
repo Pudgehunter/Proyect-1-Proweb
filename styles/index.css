@@ -52,8 +52,6 @@ body{
 }
 
 header{
-    background-color: orangered;
-    color: black; 
     max-width: 100% !important;
     overflow-x: hidden  !important; 
 }
@@ -130,6 +128,7 @@ p{
     display: flex;
     flex-direction: row; 
     justify-content: space-around;
+    margin-right: 1%;
     align-items: center;
 }
 
@@ -160,6 +159,12 @@ p{
     color: white;
     padding: 15px;
     text-decoration: none;
+}
+
+.menu__item--action{
+    display: none;
+    border: none;
+    background: none;
 }
 
 .landing--page{

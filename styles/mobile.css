@@ -15,6 +15,11 @@
 }
 
 @media all and (max-width:868px){    
+
+    .menu__item--action{
+        display: block;
+        margin-right: 1em;
+    }
     
     .landing--page__subtitle{
         padding-left: 50px;
@@ -25,11 +30,26 @@
         z-index: 8;
         /* background-color: blue;  */
     }
-    
-    .menu__list{
-        display: none;
-        max-width: 100%; 
+
+    .menu__list--mobile{
+        background-color: white;
+        display: block !important;
+        flex-direction: column;
+        position: absolute;
     }
+
+    .menu__item a{
+        color: #555555;
+    }
+    
+    .menu__item--button{
+        color: #555555;
+    }
+    
+    .menu__item--button a{
+        color: #555555;
+    }
+    
 
     .menu--scroll {
         display: none;
