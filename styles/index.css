@@ -298,7 +298,11 @@ p{
     padding-bottom: 20px;
 }
 
-
+.models{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .footer__newsletter-form{
     margin-top: 1em;
