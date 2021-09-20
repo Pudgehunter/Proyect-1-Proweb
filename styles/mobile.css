@@ -31,12 +31,21 @@
         /* background-color: blue;  */
     }
 
+    .menu__list{
+        display: none;
+    }
+
     .menu__list--mobile{
         background-color: white;
         display: block !important;
         flex-direction: column;
         position: absolute;
     }
+
+    .menu__close{
+        display: block;
+    }
+    
 
     .menu__item a{
         color: #555555;

@@ -93,6 +93,9 @@ p{
     color: #555555;
 }
 
+.menu__close{
+    display: none;
+}
 
 .menu{
     position: fixed;
