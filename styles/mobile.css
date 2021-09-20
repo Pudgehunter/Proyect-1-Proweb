@@ -1,5 +1,24 @@
+@media all and (max-width:1082px){
+    .main__context-text{
+        width: 400px;
+    }
+
+    .main__context--list{
+        width: 100%;
+    }
+
+    .gallery__img{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+    }
+}
 
 @media all and (max-width:868px){    
+    
+    .landing--page__subtitle{
+        padding-left: 50px;
+    }
     
     .menu{
         max-width: 100%; 
@@ -38,6 +57,7 @@
 
     .landing--page__highlight{
         margin-top: 2em;
+        padding-left: 0px;
         /* background-color:green;  */
         padding: 0 .5em;
         font-family: 'Cantarell', sans-serif;
@@ -67,6 +87,7 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        padding-left: 0px;
         /* margin-top: 40%; */
         height: 150px;
         /* padding-top: 30px; */
