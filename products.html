@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Products</title>
+        <!--Google Styles-->
+        <!--Cantarell-->
+        <!--Open Sans-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+            rel="stylesheet">
+        <!--CSS-->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="./styles/index.css">
+        <link rel="stylesheet" href="./styles/mobile.css">
+    </head>
+    
+    <body>
+        <header>
+            <nav class="menu" id="menu">
+                <div class="menu__logo">
+                    <figure>
+                        <img src="./img/logowhite.png" alt="logoMagokoro">
+                    </figure>
+                    <p class="menu__logo--name">MAGOKORO</p>
+                </div>
+    
+                <ul class="menu__list" id="menulist">
+                    <!--Home-->
+                    <li class="menu__item">
+                        <a href='./index.html'>
+                            LA GRANJA
+                        </a>
+                    </li>
+                    <!--Products-->
+                    <li class="menu__item">
+                        <a href='./products.html'>
+                            PRODUCTOS
+                        </a>
+                    </li class="menu__item">
+                    <!--About-->
+                    <li class="menu__item">
+                        <a href='#'>
+                            CONOCENOS
+                        </a>
+                    </li>
+                    <!--Log In-->
+                    <li class="menu__item--button">
+                        <a href="#">INGRESAR</a>
+                    </li>
+                    <li class="menu__close" id="close">
+                        X
+                    </li>
+                </ul>
+                <button class="menu__item--action" id="openMenu">
+                    <img src="https://img.icons8.com/material-rounded/24/000000/menu--v1.png" />
+                </button>
+            </nav>
+            <article class="product--page">
+                <p class="product--page__highlight text-center">Reserva tu producto favorito</P>
+            </article>
+        </header>
+
+        <section>
+            <div class="filters">
+                <div>
+                    <label for="categories">Filtrar por: </label>
+                    <select name="categories" id="categories">
+                        <option value="">Todos los productos</option>
+                        <option value="vegetables">Vegetales</option>
+                        <option value="tuber">Tuberculo</option>
+                        <option value="fruit">Frutas</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="orderBy">Ordenar por: </label>
+                    <select name="orderBy" id="orderBy">
+                        <option value="vegetables">Alfabetico?</option>
+                        <option value="asc">Precio: De menor a mayor</option>
+                        <option value="desc">Precio: De mayor a menor</option>
+                    </select>
+                </div>
+            </div>
+            <!--Aquí van los productos del "firebase"-->
+            <div class="products" id="products">
+
+            </div>
+        </section>
+            <script src="./js/app-products.js"></script>
+            
+    </body>
+</html>
