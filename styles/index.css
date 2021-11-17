@@ -59,7 +59,7 @@ p {
   display: block;
 }
 
-.register {
+.sign {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,11 +76,11 @@ p {
   padding: 0px;
 }
 
-.register__image {
+.sign__image {
   width: 50%;
 }
 
-.register__text {
+.sign__text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,7 +94,7 @@ p {
   width: 50%;
 }
 
-.register__text--subtitle {
+.sign__text--subtitle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -105,17 +105,39 @@ p {
   margin-bottom: 30px;
 }
 
-.register #register p {
+.sign #register p {
   margin-bottom: 5px;
 }
 
-.register #register input[type=text], .register #register input[type=password], .register #register input[type=email] {
+.sign #register input[type=text], .sign #register input[type=password], .sign #register input[type=email] {
   border: none;
   border-bottom: 1px solid #555555;
   margin-bottom: 5px;
 }
 
-.register #register input[type=submit] {
+.sign #register input[type=submit] {
+  font-family: 'Open Sans', sans-serif;
+  color: #0B8C00;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 0.75em;
+  background-color: white;
+  border: 1px solid #4CAF50;
+  width: 198px;
+  height: 45px;
+}
+
+.sign #logIn p {
+  margin-bottom: 5px;
+}
+
+.sign #logIn input[type=text], .sign #logIn input[type=password], .sign #logIn input[type=email] {
+  border: none;
+  border-bottom: 1px solid #555555;
+  margin-bottom: 5px;
+}
+
+.sign #logIn input[type=submit] {
   font-family: 'Open Sans', sans-serif;
   color: #0B8C00;
   font-weight: 400;
@@ -641,7 +663,9 @@ p {
 
 .lds-roller {
   display: inline-block;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  margin-left: 50%;
   width: 80px;
   height: 80px;
 }

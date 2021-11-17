@@ -1,26 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Magokoro-logIn</title>
 
-        <link rel="stylesheet" href="./styles/index.css">
-    </head>
-    <body>
-        <p>Ingresar</p>
-        <div class="register__text--subtitle"><p>¿No tienes cuenta? </p><a href="./register.html">Crear usuario</a></div>
-        <form action="" id="logIn" class="auth">
-            <p>Correo electronico</p>
-            <p><input type="email" name="email" placeholder="correo electronico"></p>
-            <p>Contraseña</p>
-            <p><input type="password" name="password" placeholder="contraseña"></p>
-    
-            <input type="submit" value="Ingresar">
-        </form>
-    
-        <button id="logOut" class="auth hidden">Cerrar Sesión</button>
-        <script type="module" src="./js/fbAuthLogin.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magokoro-logIn</title>
+    <!--Google Styles-->
+    <!--Cantarell-->
+    <!--Open Sans-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+
+<body>
+    <header>
+        <nav class="menu" id="menu">
+            <div class="menu__logo">
+                <figure>
+                    <img src="./img/logowhite.png" alt="logoMagokoro">
+                </figure>
+                <p class="menu__logo--name">MAGOKORO</p>
+            </div>
+
+            <ul class="menu__list" id="menulist">
+                <!--Home-->
+                <li class="menu__item">
+                    <a href='./index.html'>
+                        LA GRANJA
+                    </a>
+                </li>
+                <!--Products-->
+                <li class="menu__item">
+                    <a href='./products.html'>
+                        PRODUCTOS
+                    </a>
+                </li class="menu__item">
+                <!--About-->
+                <li class="menu__item">
+                    <a href='#'>
+                        CONOCENOS
+                    </a>
+                </li>
+                <!--Log In-->
+                <li class="menu__item--button">
+                    <a href="#">INGRESAR</a>
+                </li>
+                <li class="menu__close" id="close">
+                    X
+                </li>
+            </ul>
+            <button class="menu__item--action" id="openMenu">
+                <img src="https://img.icons8.com/material-rounded/24/000000/menu--v1.png" />
+            </button>
+        </nav>
+    </header>
+
+
+    <section class="sign">
+        <img class="sign__image" src="./img/register.png" alt="">
+        <div class="sign__text">
+            <h2>Ingresar</h2>
+            <div class="sign__text--subtitle">
+                <p>¿No tienes cuenta? </p><a href="./register.html">Crear usuario</a>
+            </div>
+            <form action="" id="logIn" class="auth">
+                <p>Correo electronico</p>
+                <p><input type="email" name="email" placeholder=""></p>
+                <p>Contraseña</p>
+                <p><input type="password" name="password" placeholder=""></p>
+
+                <input type="submit" value="Ingresar">
+            </form>
+
+            <button id="logOut" class="auth hidden">Cerrar Sesión</button>
+        </div>
+    </section>
+
+    <script type="module" src="./js/fbAuthLogin.js"></script>
+</body>
+
 </html>
