@@ -6,16 +6,6 @@ import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyD2gLD-eFCLZxeW2BQYWpd_haUwW8B1LwA",
-    authDomain: "proweb-1.firebaseapp.com",
-    projectId: "proweb-1",
-    storageBucket: "proweb-1.appspot.com",
-    messagingSenderId: "608825969113",
-    appId: "1:608825969113:web:28149248158158f2a5f1c8"
-};
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -53,10 +43,10 @@ registerBtn.addEventListener("submit", e => {
             address,
             isAdmin: false,
         });
+        //window.location.href="./login.html";
     } else {
         alert("completa todos los campos");
     }
-    //window.location.href="./login.html";
     
 }
 )

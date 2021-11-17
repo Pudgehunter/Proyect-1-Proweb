@@ -1,20 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyD2gLD-eFCLZxeW2BQYWpd_haUwW8B1LwA",
-    authDomain: "proweb-1.firebaseapp.com",
-    projectId: "proweb-1",
-    storageBucket: "proweb-1.appspot.com",
-    messagingSenderId: "608825969113",
-    appId: "1:608825969113:web:28149248158158f2a5f1c8"
-};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -23,7 +13,7 @@ const auth = getAuth();
 
 
 //Recibir datos
-const getUserInfo = (userId) => {
+const getUserInfo = async (userId) => {
     try {
         const docRef = doc(db, "users", userId);
         const docSnap = await getDoc(docRef);
@@ -40,7 +30,7 @@ const logIn = async (email, password) => {
         const {user} = await signInWithEmailAndPassword(auth, email, password);
         const userInfo = await getUserInfo(user.uid);
 
-        console.log(`Bienvenido ${user.name}`);
+        console.log(`Bienvenido ${userInfo.name}`);
 
         alert("Pues supuestamente ingresaste we");
     }catch(e){
@@ -70,8 +60,9 @@ ingresarBtn.addEventListener("submit", e => {
 
     if(email && password){
         logIn(email,password);
+    } else {
+        alert("completa todos los campos");
     }
-    console.log("aaa");
 }
 );
 

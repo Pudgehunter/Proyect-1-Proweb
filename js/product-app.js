@@ -1,3 +1,9 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 //Aquí llamo la vaina de la interacción de products. Ojala funcione para no crear tantos js.
 // Elementos a mostrar en mi HTML (DOM)
 const products = [

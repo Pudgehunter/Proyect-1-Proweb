@@ -1,3 +1,5 @@
+
+
 const products = [
     {
         id: 1,
@@ -67,3 +69,7 @@ const products = [
         type: "tuber",
     }
 ];
+
+products.forEach(async (product) => {
+    await setDoc(doc(db, "products", `344324dfr${product.id}`), product);
+});
