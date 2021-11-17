@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
 
-    <div class="product">
+    <div class="product_a" id="product">
         <div class="product__image">
             <img src="" alt="" class="product__mainImage" id="productImage">
             <div id="gallery"></div>
@@ -23,8 +24,9 @@
             <button class="product__addToCart">Añadir al carrito</button>
         </div>
     </div>
+    <div class="lds-roller" id="spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
     <script src="./js/utils.js"></script>
-    <script type="module" src="./js/products.js"></script>
-    <!--<script src="./js/product.js"></script>-->
+    <script type="module" src="./js/product.js"></script>
 </body>
 </html>
