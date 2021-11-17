@@ -73,14 +73,17 @@ logOutButton.addEventListener("click", e => {
     console.log("Cerro sesión el usuario");
 });
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
     if(user){
-        ingresarBtn.classList.add("hidden");
-        logOutButton.classList.remove("hidden");
-        logOutButton.classList.add("visible");
+        loginButton.classList.add("hidden");
+        const userInfo = await getUserInfo(user.uid);
+        username.innerHTML = userInfo.name;
+        username.classList.remove("hidden");  
+        username.classList.add("visible");
     } else {
-        ingresarBtn.classList.remove("hidden");
-        logOutButton.classList.add("hidden");
-        logOutButton.classList.remove("visible");
+        loginButton.classList.remove("hidden");
+        username.classList.add("hidden");
+        username.classList.remove("visible");
     }
 });
+

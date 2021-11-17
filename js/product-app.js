@@ -1,8 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+import { getFirestore, doc, collection, getDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth();
 
 window.onscroll = function (e) {
     const posY = document.documentElement.scrollTop;
@@ -12,6 +14,18 @@ window.onscroll = function (e) {
       menu.classList.remove('menu--scroll');
     }
   }
+
+//Recibir datos del usuario
+//Recibir datos
+const getUserInfo = async (userId) => {
+    try {
+        const docRef = doc(db, "users", userId);
+        const docSnap = await getDoc(docRef);
+        return docSnap.data();        
+    } catch (e) {
+        console.log(e);
+    }
+}
   
 //Lectura de firebase
 const getAllProducts = async () => {
@@ -152,5 +166,19 @@ orderBySelect.addEventListener("change", e => {
 
 filterByCategory.addEventListener("change", e => {
     loadProducts();
+});
+
+onAuthStateChanged(auth, async (user) => {
+    if(user){
+        loginButton.classList.add("hidden");
+        const userInfo = await getUserInfo(user.uid);
+        username.innerHTML = userInfo.name;
+        username.classList.remove("hidden");  
+        username.classList.add("visible");
+    } else {
+        loginButton.classList.remove("hidden");
+        username.classList.add("hidden");
+        username.classList.remove("visible");
+    }
 });
 

@@ -216,11 +216,16 @@ p {
 .menu__item {
   list-style: none;
   text-decoration: none;
-  font-size: 1em;
   padding: 15px;
 }
 
 .menu__item a {
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.menu__item--username {
+  font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   color: #FFFFFF;
 }

@@ -48,9 +48,10 @@
                     </a>
                 </li>
                 <!--Log In-->
-                <li class="menu__item--button">
-                    <a href="#">INGRESAR</a>
+                <li class="auth menu__item--button" id="loginButton">
+                    <a href="./login.html">INGRESAR</a>
                 </li>
+                <li class="auth menu__item--username hidden" id="username"></li>
                 <li class="menu__close" id="close">
                     X
                 </li>
@@ -63,7 +64,7 @@
 
 
     <section class="sign">
-        <img class="sign__image" src="./img/register.png" alt="">
+        <img class="sign__image" src="./img/login.jpg" alt="">
         <div class="sign__text">
             <h2>Ingresar</h2>
             <div class="sign__text--subtitle">
@@ -82,6 +83,7 @@
         </div>
     </section>
 
+    <script src="./js/utils.js"></script>
     <script type="module" src="./js/fbAuthLogin.js"></script>
 </body>
 

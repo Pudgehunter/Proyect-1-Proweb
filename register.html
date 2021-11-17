@@ -46,9 +46,10 @@
                     </a>
                 </li>
                 <!--Log In-->
-                <li class="menu__item--button">
-                    <a href="#">INGRESAR</a>
+                <li class="auth menu__item--button" id="loginButton">
+                    <a href="./login.html">INGRESAR</a>
                 </li>
+                <li class="auth menu__item--username hidden" id="username"></li>
                 <li class="menu__close" id="close">
                     X
                 </li>
@@ -80,6 +81,8 @@
                 </form>
         </div>
     </section>
+
+    <script src="./js/utils.js"></script>
     <script type="module" src="./js/fbAuthRegister.js"></script>
 </body>
 </html>

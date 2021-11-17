@@ -3,6 +3,8 @@ $gray: #C4C4C4;
 $green: #0B8C00;
 $blue: #3483fa;
 
+$mainNormalSize: 18px;
+
 * {
     padding: 0%;
     box-sizing: border-box;
@@ -17,7 +19,7 @@ body {
     background: $gray;
     font-family: 'Cantarell', sans-serif;
     width: 100%;
-    font-size: 18px;
+    font-size: $mainNormalSize;
     overflow-x: hidden;
     color: $black;
     margin: 0;
@@ -66,7 +68,6 @@ p{
     }
     
 }
-
 
 .sign{
     
@@ -183,12 +184,20 @@ p{
     &__item{
         list-style: none;
         text-decoration: none;
-        font-size: 1em;
+        //font-size: 20px;
         padding: 15px;
         & a {
             font-weight: bold;
             color:#FFFFFF;
         }
+
+        &--username{
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bold;
+            color:#FFFFFF;
+            //font-size: 13.5px;
+        }
+
         &--button{
             list-style: none;
             text-decoration: none;
