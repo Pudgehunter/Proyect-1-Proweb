@@ -10,13 +10,17 @@
     </head>
     <body>
         <p>Ingresar</p>
+        <div class="register__text--subtitle"><p>¿No tienes cuenta? </p><a href="#">Crear usuario</a></div>
         <form action="" id="logIn" class="auth">
-            <input type="email" name="email" placeholder="correo electronico">
-            <input type="password" name="password" placeholder="contraseña">
+            <p>Correo electronico</p>
+            <p><input type="email" name="email" placeholder="correo electronico"></p>
+            <p>Contraseña</p>
+            <p><input type="password" name="password" placeholder="contraseña"></p>
     
             <input type="submit" value="Ingresar">
         </form>
     
         <button id="logOut" class="auth hidden">Cerrar Sesión</button>
-        <script type="module" src="./js/firebaseAuth.js"></script>
+        <script type="module" src="./js/fbAuthLogin.js"></script>
+    </body>
 </html>

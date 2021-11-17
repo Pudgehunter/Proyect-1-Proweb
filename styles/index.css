@@ -94,6 +94,39 @@ p {
   width: 50%;
 }
 
+.register__text--subtitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 30px;
+}
+
+.register #register p {
+  margin-bottom: 5px;
+}
+
+.register #register input[type=text], .register #register input[type=password], .register #register input[type=email] {
+  border: none;
+  border-bottom: 1px solid #555555;
+  margin-bottom: 5px;
+}
+
+.register #register input[type=submit] {
+  font-family: 'Open Sans', sans-serif;
+  color: #0B8C00;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 0.75em;
+  background-color: white;
+  border: 1px solid #4CAF50;
+  width: 198px;
+  height: 45px;
+}
+
 .menu {
   position: fixed;
   display: -webkit-box;

@@ -60,18 +60,26 @@
     </header>
 
     <section class="register">
-        <img class="register__image" src="./img/register.jpeg" alt="">
+        <img class="register__image" src="./img/register.png" alt="">
         <div class="register__text">
             <h2>Regístrate</h2>
-            <p>¿Ya tienes cuenta?<a href="#">Iniciar Sesión</a></p>
+            <div class="register__text--subtitle"><p>¿Ya tienes cuenta? </p><a href="#">Iniciar Sesión</a></div>
                 <form action="" id="register" class="auth">
-                    <p><input type="text" name="name" placeholder="nombre"></p>
-                    <p><input type="email" name="email" placeholder="correo electronico"></p>
-                    <p><input type="password" name="password" placeholder="contraseña"></p>
+                    <p>Nombre</p>
+                    <p><input type="text" name="name" placeholder=""></p>
+                    <p>Email</p>
+                    <p><input type="email" name="email" placeholder=""></p>
+                    <p>Contraseña</p>
+                    <p><input type="password" name="password" placeholder=""></p>
+                    <p>Ciudad</p>
+                    <p><input type="text" name="city" placeholder=""></p>
+                    <p>Dirección</p>
+                    <p><input type="text" name="address" placeholder=""></p>
             
-                    <input type="submit" value="Registrar">
+                    <input class="register__button" type="submit" value="Registrar">
                 </form>
         </div>
     </section>
+    <script type="module" src="./js/fbAuthRegister.js"></script>
 </body>
 </html>
