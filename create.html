@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magokoro: create</title>
+    <title>Magokoro-create</title>
     <!--Google Styles-->
     <!--Cantarell-->
     <!--Open Sans-->
@@ -62,26 +62,31 @@
     </header>
 
     <section class="sign">
-        <img class="sign__image" src="./img/login.jpg" alt="">
+        <img class="sign__image" src="./img/create.jpg" alt="">
         <div class="sign__text">
             <h2>Añadir un nuevo producto</h2>
             <form action="" id="createProduct">
-                <p>Nombre de producto</p>
+                <!--<p>Nombre de producto</p>-->
+                <label>Nombre de producto</label>
                 <p><input type="text" name="name" placeholder=""></p>
-                <p>Precio</p>
+                <!--<p>Precio</p>-->
+                <label>Precio</label>
                 <p><input type="number" name="price" placeholder=""></p>
 
-                <p>Descripción del producto</p>
-                <textarea name="description"></textarea>
+                <!--<p>Descripción del producto</p>-->
+                <label>Descripción del producto</label>
+                <p><textarea name="description"></textarea></p>
 
                 <div class="images">
                     <div class="images__input">
+                        <!--<p>Fotografía principal</p>-->   
                         <label for="name">Fotografía principal</label>
-                        <input type="file" accept=".jpg, .png" name="image" id="mainImage">
+                        <p><input type="file" accept=".jpg, .png" name="image" id="mainImage"></p>
                     </div>
                     <img src="" alt="" id="preview">
                 </div>
 
+                <!--<p>Categoría del producto</p>-->
                 <label for="type">Categoría del producto</label>
                 <select name="type">
                     <option value="vegetables">Verduras</option>
@@ -90,8 +95,9 @@
                 </select>
 
                 <div class="images">
+                    <!--<p>Galería</p>-->
                     <label for="gallery">Galería</label>
-                    <input type="file" aceppt=".jpg,.png" multiple name="gallery">
+                    <p><input type="file" aceppt=".jpg,.png" multiple name="gallery"></p>
                 </div>
 
                 <input class="create__button" type="submit" value="Agregar producto" id="submitButton">

@@ -6,9 +6,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
-
-
-
 window.onscroll = function (e) {
     const posY = document.documentElement.scrollTop;
     if (posY >= 150) {

@@ -51,6 +51,12 @@ p {
   color: #555555;
 }
 
+label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.75em;
+  color: #555555;
+}
+
 .auth.hidden {
   display: none;
 }
@@ -92,6 +98,8 @@ p {
       -ms-flex-align: center;
           align-items: center;
   width: 50%;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 .sign__text--subtitle {
@@ -105,17 +113,18 @@ p {
   margin-bottom: 30px;
 }
 
-.sign #register p {
+.sign #logIn p, .sign #createProduct p, .sign #register p {
+  margin-top: 5px;
   margin-bottom: 5px;
 }
 
-.sign #register input[type=text], .sign #register input[type=password], .sign #register input[type=email] {
+.sign #logIn input[type=text], .sign #logIn input[type=password], .sign #logIn input[type=email], .sign #logIn input[type=number], .sign #createProduct input[type=text], .sign #createProduct input[type=password], .sign #createProduct input[type=email], .sign #createProduct input[type=number], .sign #register input[type=text], .sign #register input[type=password], .sign #register input[type=email], .sign #register input[type=number] {
   border: none;
   border-bottom: 1px solid #555555;
   margin-bottom: 5px;
 }
 
-.sign #register input[type=submit] {
+.sign #logIn input[type=submit], .sign #createProduct input[type=submit], .sign #register input[type=submit] {
   font-family: 'Open Sans', sans-serif;
   color: #0B8C00;
   font-weight: 400;
@@ -125,28 +134,7 @@ p {
   border: 1px solid #4CAF50;
   width: 198px;
   height: 45px;
-}
-
-.sign #logIn p {
-  margin-bottom: 5px;
-}
-
-.sign #logIn input[type=text], .sign #logIn input[type=password], .sign #logIn input[type=email] {
-  border: none;
-  border-bottom: 1px solid #555555;
-  margin-bottom: 5px;
-}
-
-.sign #logIn input[type=submit] {
-  font-family: 'Open Sans', sans-serif;
-  color: #0B8C00;
-  font-weight: 400;
-  text-decoration: none;
-  font-size: 0.75em;
-  background-color: white;
-  border: 1px solid #4CAF50;
-  width: 198px;
-  height: 45px;
+  margin-top: 10px;
 }
 
 .menu {
