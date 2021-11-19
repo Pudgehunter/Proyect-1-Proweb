@@ -6,6 +6,10 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
+let products = [];
+let userLogged = null;
+let cart = [];
+
 window.onscroll = function (e) {
     const posY = document.documentElement.scrollTop;
     if (posY >= 150) {
@@ -26,6 +30,15 @@ const getUserInfo = async (userId) => {
         console.log(e);
     }
 }
+
+//Recibir los datos del carrito
+const getFirebaseCart = async (userId) => {
+    const docRef = doc(db, "cart", userId);
+    const docSnap = await getDoc(docRef);
+    return docSnap.exists() ? docSnap.data() : {
+        products: []
+    }
+};
   
 //Lectura de firebase
 const getAllProducts = async () => {
@@ -46,16 +59,25 @@ const getAllProducts = async () => {
     return products;
 };
 
-let products = getAllProducts();
 
 // Elementos que añadí a mi carrito
 
 const getMyCart = () => {
     const cart = localStorage.getItem("cart");
     return cart ? JSON.parse(cart) : [];
-}
+};
 
-const cart = getMyCart();
+
+const addProductsCart = async (products) => {
+    await setDoc(doc(db,"cart",userLogged.uid),{
+        products
+    });
+};
+
+
+//const cart = getMyCart();
+//const firebaseCart = getFirebaseCart();
+
 
 // Añadir cada producto a un elemento contenedor
 const productsSection = document.getElementById("products");
@@ -83,6 +105,7 @@ const productTemplate = (item) => {
 
     // Lógica para saber si un producto ya fue añadido al carrito
     // para deshabilitar el botón.
+    console.log(cart);
     const isAdded = cart.some(productCart => productCart.id === item.id);
     let buttonHtml;
 
@@ -125,6 +148,12 @@ const productTemplate = (item) => {
         };
 
         cart.push(productAdded);
+
+        if(userLogged){
+            addProductsCart(cart);
+        }
+        
+        localStorage.setItem("cart", JSON.stringify(cart));
 
         // Deshabilito el botón
         productCartButton.setAttribute("disabled", true);
@@ -176,15 +205,22 @@ filterByCategory.addEventListener("change", e => {
 
 onAuthStateChanged(auth, async (user) => {
     if(user){
+        //Los datos del firebase carrito
+        const result = await getFirebaseCart(user.uid);
+        cart = result.products;
+        userLogged = user;
         loginButton.classList.add("hidden");
+        //Los datos del firebase del usuario
         const userInfo = await getUserInfo(user.uid);
         username.innerHTML = userInfo.name;
         username.classList.remove("hidden");  
         username.classList.add("visible");
     } else {
+        cart = getMyCart();
         loginButton.classList.remove("hidden");
         username.classList.add("hidden");
         username.classList.remove("visible");
     }
+    getAllProducts();
 });
 
