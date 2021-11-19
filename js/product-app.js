@@ -1,10 +1,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
-import { getFirestore, doc, collection, getDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { getFirestore, doc, collection, getDoc, getDocs , setDoc} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
+
+
+
 
 window.onscroll = function (e) {
     const posY = document.documentElement.scrollTop;
@@ -49,7 +52,13 @@ const getAllProducts = async () => {
 let products = getAllProducts();
 
 // Elementos que añadí a mi carrito
-const cart = [];
+
+const getMyCart = () => {
+    const cart = localStorage.getItem("cart");
+    return cart ? JSON.parse(cart) : [];
+}
+
+const cart = getMyCart();
 
 // Añadir cada producto a un elemento contenedor
 const productsSection = document.getElementById("products");

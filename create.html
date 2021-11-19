@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magokoro: create</title>
+    <!--Google Styles-->
+    <!--Cantarell-->
+    <!--Open Sans-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+<body>
+    <header>
+        <nav class="menu" id="menu">
+            <div class="menu__logo">
+                <figure>
+                    <img src="./img/logowhite.png" alt="logoMagokoro">
+                </figure>
+                <p class="menu__logo--name">MAGOKORO</p>
+            </div>
+
+            <ul class="menu__list" id="menulist">
+                <!--Home-->
+                <li class="menu__item">
+                    <a href='./index.html'>
+                        LA GRANJA
+                    </a>
+                </li>
+                <!--Products-->
+                <li class="menu__item">
+                    <a href='./products.html'>
+                        PRODUCTOS
+                    </a>
+                </li class="menu__item">
+                <!--About-->
+                <li class="menu__item">
+                    <a href='#'>
+                        CONOCENOS
+                    </a>
+                </li>
+                <!--Log In-->
+                <li class="auth menu__item--button" id="loginButton">
+                    <a href="./login.html">INGRESAR</a>
+                </li>
+                <li class="auth menu__item--username hidden" id="username"></li>
+                <li class="menu__close" id="close">
+                    X
+                </li>
+            </ul>
+            <button class="menu__item--action" id="openMenu">
+                <img src="https://img.icons8.com/material-rounded/24/000000/menu--v1.png" />
+            </button>
+        </nav>
+    </header>
+
+    <section class="sign">
+        <img class="sign__image" src="./img/login.jpg" alt="">
+        <div class="sign__text">
+            <h2>Añadir un nuevo producto</h2>
+            <form action="" id="createProduct">
+                <p>Nombre de producto</p>
+                <p><input type="text" name="name" placeholder=""></p>
+                <p>Precio</p>
+                <p><input type="number" name="price" placeholder=""></p>
+
+                <p>Descripción del producto</p>
+                <textarea name="description"></textarea>
+
+                <div class="images">
+                    <div class="images__input">
+                        <label for="name">Fotografía principal</label>
+                        <input type="file" accept=".jpg, .png" name="image" id="mainImage">
+                    </div>
+                    <img src="" alt="" id="preview">
+                </div>
+
+                <label for="type">Categoría del producto</label>
+                <select name="type">
+                    <option value="vegetables">Verduras</option>
+                    <option value="tuber">Tuberculos</option>
+                    <option value="fruit">Frutas</option>
+                </select>
+
+                <div class="images">
+                    <label for="gallery">Galería</label>
+                    <input type="file" aceppt=".jpg,.png" multiple name="gallery">
+                </div>
+
+                <input class="create__button" type="submit" value="Agregar producto" id="submitButton">
+                <p id="feedback"></p>
+            </form>
+        </div>
+    </section>
+
+    <script src="./js/utils.js"></script>
+    <script type="module" src="./js/product-create.js"></script>
+</body>
+</html>
