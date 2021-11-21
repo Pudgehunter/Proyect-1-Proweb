@@ -10,6 +10,9 @@ let products = [];
 let userLogged = null;
 let cart = [];
 
+const logOutButton = document.getElementById("logOut");
+
+
 window.onscroll = function (e) {
     const posY = document.documentElement.scrollTop;
     if (posY >= 150) {
@@ -40,10 +43,14 @@ const getFirebaseCart = async (userId) => {
     }
 };
   
+const spinner = document.getElementById("spinner");
 //Lectura de firebase
 const getAllProducts = async () => {
     const collectionRef = collection(db, "products");
     const { docs } = await getDocs(collectionRef);
+
+    productsSection.classList.add("loaded");
+    spinner.classList.add("loaded");
 
     const products = docs.map((doc) => {
         return {
@@ -105,7 +112,7 @@ const productTemplate = (item) => {
 
     // Lógica para saber si un producto ya fue añadido al carrito
     // para deshabilitar el botón.
-    console.log(cart);
+    //console.log(cart);
     const isAdded = cart.some(productCart => productCart.id === item.id);
     let buttonHtml;
 
@@ -160,6 +167,7 @@ const productTemplate = (item) => {
         localStorage.setItem("cart", JSON.stringify(cart));
 
         // Deshabilito el botón
+        productCartButton.innerHTML = "Producto añadido";
         productCartButton.setAttribute("disabled", true);
     });
 
@@ -167,6 +175,7 @@ const productTemplate = (item) => {
 
 const filterByCategory = document.getElementById("categories");
 const orderBySelect = document.getElementById("orderBy");
+
 
 const loadProducts = () => {
 
@@ -217,11 +226,13 @@ onAuthStateChanged(auth, async (user) => {
         //Los datos del firebase del usuario
         const userInfo = await getUserInfo(user.uid);
         username.innerHTML = userInfo.name;
+        logOutButton.classList.add("visible");
         username.classList.remove("hidden");  
         username.classList.add("visible");
     } else {
         cart = getMyCart();
         loginButton.classList.remove("hidden");
+        logOutButton.classList.remove("visible");
         username.classList.add("hidden");
         username.classList.remove("visible");
     }

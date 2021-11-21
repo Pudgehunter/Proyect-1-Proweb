@@ -1,6 +1,7 @@
 $black: #555555;
 $gray: #E4E4E4;
 $green: #0B8C00;
+$buttongreen: #73ED6A;
 $blue: #3483fa;
 
 $mainNormalSize: 18px;
@@ -38,6 +39,13 @@ h2{
     padding-bottom: 0.75em;
     color: $green;
     font-weight: 400;
+}
+
+h4{
+    font-family: 'Cantarell', sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: 20px;
 }
 
 a{
@@ -343,55 +351,6 @@ label{
     align-items: center;
 }
 
-.footer{
-    background-color: #CEE6CC;
-    &__newsletter {
-        &-form{
-            margin-top: 1em;
-            display: flex;
-            justify-content: center;
-        }
-        &-input{
-            width: 300px;
-            height: 30px;
-        }
-    }
-    &__button{
-        background: #0B8C00;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100px;
-        color: white;
-    }
-    &__menu{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        &--contact{
-            display: flex;
-            flex-direction: row;
-        }
-        &--list--logo{
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-        }
-        &--item--logo{
-            padding: 0.5%;
-            & img{
-                width: 20px;
-                height: 20px;
-            }
-        }
-    }
-    &__logo{
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        align-items: center;
-    }
-}
 
 .swiper{
     &-container{
@@ -453,33 +412,41 @@ label{
 
 
 .product {
+    padding: 15px;
     display: block;
     width: 32%;
-    
+    height: 100%;
     text-decoration: none;
     margin: 20px 0px 20px 0px;
-    background-color: #FFF;
+    
+    &.loaded{
+        display: flex;
+    }
 
     &--cart{
-        width:90%;
+        //width:90%;
+        background-color: white;
         display: flex;
         align-items: center;
         justify-content: center;
+        width: calc(100% - 500px * 1);
+        margin: 10px auto;
         padding: 20px;
         height: 150px;
     }
 
     &__image {
         width: 100%;
-        height: 250px;
+        height: 100%;
         object-fit: contain;
     }
 
     &__description {
+        background-color: #FFF;
         display:flex;
         flex-direction: column;
         align-items: center;
-        padding: 15px;
+        
     }
 
     &__thumbnail{
@@ -506,30 +473,43 @@ label{
 
     &__price {
         color: $black;
-        font-size: 1.5em;
-        margin: 15px 0;
+        margin: $margin 0;
     }
 
     &__name {
-        color: $black;
-        font-size: 1.1em;
+        font-family: 'Cantarell', sans-serif;
+        color: $green;
+        font-size: 20px;
+        padding: 0px;
     }
 
     &__cart {
-        background-color: $green;
-        color: #FFF;
-        border: none;
-        padding: 10px;
-        border-radius: 5px;
+        background-color: white;
+        color: $buttongreen;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        border: solid $buttongreen;
+        width: 235px;
+        margin: $margin;
+        padding: 15px;
+
+        &:hover{
+            color:white;
+            background-color: $buttongreen;
+        }
 
         &:disabled{
-            background-color: gray;
+            color: white;
+            background-color: $buttongreen;
         }
     }
 
 }
 
 .product_a{
+    margin-top: 10%;
+    height: 550px;
     display: none;
     &.loaded{
         display: flex;
@@ -539,8 +519,9 @@ label{
 //Loading CSS
 .lds-roller {
     display: inline-block;
-    position: absolute;
-    top: 50%;
+    position: flex;
+    margin-top: 20%;
+    margin-bottom: 20%;
     margin-left: 50%;
     width: 80px;
     height: 80px;
@@ -559,7 +540,7 @@ label{
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #fff;
+    background: $green;
     margin: -4px 0 0 -4px;
   }
   .lds-roller div:nth-child(1) {
@@ -627,4 +608,86 @@ label{
     }
   }
   
-  //
+  //Nuevos footers
+  .footer{
+      margin-top: 20px;
+      padding-top: 5%;
+      background-color: $black;
+      padding-bottom: 4rem;
+
+      &__container{
+          width: 80%;
+          height: 40vh;
+          background-color: $black;
+          color: white;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin: 0 auto;
+
+          &-heading {
+              display: flex;
+              flex-direction: column;
+              margin-right: 4rem;
+              & h4{
+                  margin-bottom: 2rem;
+              }
+              & a {
+                  color: white;
+                  margin-bottom: 0.5rem;
+              }
+              & a:hover {
+                  color:$blue;
+              }
+          }
+      }
+      &-email-form h4{
+        margin-bottom: 2rem;
+    }
+  }
+
+  #footer-email{
+      width: 250px;
+      height: 40px;
+      outline: none;
+      border: none;
+      padding-left: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      &-btn{
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        font-weight: 400;
+        text-decoration: none;
+        font-size: 0.75em;
+        background-color: $black;
+        border: solid white;
+        width: 100px;
+        height: 40px;
+        margin-top:$margin;
+        &:hover{
+            background-color: $blue;
+            border: solid $blue;
+        }  
+      }
+  }
+
+  #footer-email::placeholder{
+      color: $gray;
+  }
+
+  @media screen and (max-width:820){
+    .footer{
+        padding-top: 2rem;
+    }
+}
+
+  @media screen and (max-width:1061px){
+      .footer{
+          height:50vh;
+          &-email-form{
+              margin-top: 4rem;
+          }
+      }
+  }
+  

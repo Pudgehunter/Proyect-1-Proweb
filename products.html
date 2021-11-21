@@ -1,100 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Products</title>
-        <!--Google Styles-->
-        <!--Cantarell-->
-        <!--Open Sans-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
-            rel="stylesheet">
-        <!--CSS-->
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-        <link rel="stylesheet" href="./styles/index.css">
-        <link rel="stylesheet" href="./styles/mobile.css">
-    </head>
-    
-    <body>
-        <header>
-            <nav class="menu" id="menu">
-                <div class="menu__logo">
-                    <figure>
-                        <img src="./img/logowhite.png" alt="logoMagokoro">
-                    </figure>
-                    <p class="menu__logo--name">MAGOKORO</p>
-                </div>
-    
-                <ul class="menu__list" id="menulist">
-                    <!--Home-->
-                    <li class="menu__item">
-                        <a href='./index.html'>
-                            LA GRANJA
-                        </a>
-                    </li>
-                    <!--Products-->
-                    <li class="menu__item">
-                        <a href='./products.html'>
-                            PRODUCTOS
-                        </a>
-                    </li class="menu__item">
-                    <!--About-->
-                    <li class="menu__item">
-                        <a href='#'>
-                            CONOCENOS
-                        </a>
-                    </li>
-                    <!--Log In-->
-                    <li class="auth menu__item--button" id="loginButton">
-                        <a href="#">INGRESAR</a>
-                    </li>
-                    <li class="auth menu__item--username hidden" id="username"></li>
-                    <li><button id="logOut" class="auth">Cerrar Sesión</button></li>
-                    <li class="menu__close" id="close">
-                        X
-                    </li>
-                </ul>
-                <button class="menu__item--action" id="openMenu">
-                    <img src="https://img.icons8.com/material-rounded/24/000000/menu--v1.png" />
-                </button>
-            </nav>
-            <article class="product--page">
-                <p class="product--page__highlight text-center">Reserva tu producto favorito</P>
-            </article>
-        </header>
 
-        <section>
-            <div class="filters">
-                <div>
-                    <label for="categories">Filtrar por: </label>
-                    <select name="categories" id="categories">
-                        <option value="">Todos los productos</option>
-                        <option value="vegetables">Vegetales</option>
-                        <option value="tuber">Tuberculo</option>
-                        <option value="fruit">Frutas</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="orderBy">Ordenar por: </label>
-                    <select name="orderBy" id="orderBy">
-                        <option value="vegetables">Alfabetico?</option>
-                        <option value="asc">Precio: De menor a mayor</option>
-                        <option value="desc">Precio: De mayor a menor</option>
-                    </select>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <!--Google Styles-->
+    <!--Cantarell-->
+    <!--Open Sans-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/mobile.css">
+</head>
+
+<body>
+    <header>
+        <nav class="menu" id="menu">
+            <div class="menu__logo">
+                <figure>
+                    <img src="./img/logowhite.png" alt="logoMagokoro">
+                </figure>
+                <p class="menu__logo--name">MAGOKORO</p>
             </div>
-            <!--Aquí van los productos del "firebase"-->
-            <div class="products" id="products">
 
+            <ul class="menu__list" id="menulist">
+                <!--Home-->
+                <li class="menu__item">
+                    <a href='./index.html'>
+                        LA GRANJA
+                    </a>
+                </li>
+                <!--Products-->
+                <li class="menu__item">
+                    <a href='./products.html'>
+                        PRODUCTOS
+                    </a>
+                </li class="menu__item">
+                <!--About-->
+                <li class="menu__item">
+                    <a href='#'>
+                        CONOCENOS
+                    </a>
+                </li>
+                <!--Log In-->
+                <li class="auth menu__item--button" id="loginButton">
+                    <a href="#">INGRESAR</a>
+                </li>
+                <li class="auth menu__item--username hidden" id="username"></li>
+                <li><button id="logOut" class="auth hidden">Cerrar Sesión</button></li>
+                <li class="menu__close" id="close">
+                    X
+                </li>
+            </ul>
+            <button class="menu__item--action" id="openMenu">
+                <img src="https://img.icons8.com/material-rounded/24/000000/menu--v1.png" />
+            </button>
+        </nav>
+        <article class="product--page">
+            <p class="product--page__highlight text-center">Reserva tu producto favorito</P>
+        </article>
+    </header>
+
+    <section>
+        <div class="filters">
+            <div>
+                <label for="categories">Filtrar por: </label>
+                <select name="categories" id="categories">
+                    <option value="">Todos los productos</option>
+                    <option value="vegetables">Vegetales</option>
+                    <option value="tuber">Tuberculo</option>
+                    <option value="fruit">Frutas</option>
+                </select>
             </div>
-        </section>
-            <script src="./js/utils.js"></script>
+            <div>
+                <label for="orderBy">Ordenar por: </label>
+                <select name="orderBy" id="orderBy">
+                    <option value="vegetables">Alfabetico?</option>
+                    <option value="asc">Precio: De menor a mayor</option>
+                    <option value="desc">Precio: De mayor a menor</option>
+                </select>
+            </div>
+        </div>
+        <!--Aquí van los productos del "firebase"-->
+        <div class="products" id="products">
 
-            <script type="module" src="./js/product-app.js"></script>
-            
-    </body>
+        </div>
+        <!--loading-->
+        <div class="lds-roller" id="spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__container-heading footer-1">
+                <h4>Sobre nosotros</h4>
+                <a href="#">Sobre nosotros</a>
+                <a href="#">Productos</a>
+                <a href="#">Tu carrito</a>
+                <a href="#">Terminos y condiciones</a>
+            </div>
+            <div class="footer__container-heading footer-2">
+                <h4>Contáctanos</h4>
+                <a href="#"><img src="./img/icons/call.png">+573137782524</a>
+                <a href="#"><img src="./img/icons/mail.png">granjamagokoro@gmail.com</a>
+            </div>
+            <div class="footer-email-form">
+                <h4>Subscribete para las últimas ofertas</h4>
+                <input type="email" id="footer-email" placeholder="Tu email">
+                <input type="submit" value="Sign up" id="footer-email-btn">
+            </div>
+        </div>
+        <h4 class="text-center">©2020 Magokoro.</h4>
+    </footer>
+
+    <!--------JS-------->
+    <script src="./js/utils.js"></script>
+
+    <script type="module" src="./js/product-app.js"></script>
+
+</body>
+
 </html>
