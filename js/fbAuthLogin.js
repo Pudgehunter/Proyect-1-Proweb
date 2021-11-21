@@ -80,8 +80,10 @@ onAuthStateChanged(auth, async (user) => {
         username.innerHTML = userInfo.name;
         username.classList.remove("hidden");  
         username.classList.add("visible");
+        logOutButton.classList.add("visible");
     } else {
         loginButton.classList.remove("hidden");
+        logOutButton.classList.remove("visible");
         username.classList.add("hidden");
         username.classList.remove("visible");
     }

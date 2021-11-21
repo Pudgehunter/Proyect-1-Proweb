@@ -115,11 +115,13 @@ const productTemplate = (item) => {
         buttonHtml = `<button class="product__cart">Añadir al carrito</button>`;
     }
 
+    const thumbnail = 'https://user-images.githubusercontent.com/101482/29592647-40da86ca-875a-11e7-8bc3-941700b0a323.png';
+
     // Añadir el HTML a nuestro elemento product.
     product.innerHTML = `
     <div class="product__description">
         <h2 class="product__name">${item.name}</h2>
-        <img src="${item.image}" alt="${item.name}" class="product__image">
+        <img src="${item.image !== '' ? item.image : thumbnail}" alt="${item.name}" class="product__image">
             ${tagHtml}
             <h3 class="product__price">$ ${item.price}</h3>
             ${buttonHtml}
@@ -160,8 +162,6 @@ const productTemplate = (item) => {
     });
 
 };
-
-
 
 const filterByCategory = document.getElementById("categories");
 const orderBySelect = document.getElementById("orderBy");
@@ -207,7 +207,9 @@ onAuthStateChanged(auth, async (user) => {
     if(user){
         //Los datos del firebase carrito
         const result = await getFirebaseCart(user.uid);
-        cart = result.products;
+        if(cart != null){
+            cart = result.products;
+        }
         userLogged = user;
         loginButton.classList.add("hidden");
         //Los datos del firebase del usuario

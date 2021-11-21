@@ -1,5 +1,5 @@
 $black: #555555;
-$gray: #C4C4C4;
+$gray: #E4E4E4;
 $green: #0B8C00;
 $blue: #3483fa;
 
@@ -130,7 +130,16 @@ label{
     }
 }
 
-
+//Button CSS
+#logOut{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: white;
+    padding: 15px;
+    font-size: 15px;
+    border: solid white;
+    background-color: transparent;
+}
 
 //clases
 .menu{
@@ -186,6 +195,7 @@ label{
             font-family: 'Open Sans', sans-serif;
             font-weight: bold;
             color:#FFFFFF;
+            padding: 15px;
             //font-size: 13.5px;
         }
 
@@ -441,14 +451,23 @@ label{
     justify-content: space-between;
 }
 
+
 .product {
     display: block;
     width: 32%;
+    
     text-decoration: none;
-    border: solid 1px $black;
-    border-radius: 10px;
     margin: 20px 0px 20px 0px;
     background-color: #FFF;
+
+    &--cart{
+        width:90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        height: 150px;
+    }
 
     &__image {
         width: 100%;
@@ -461,6 +480,13 @@ label{
         flex-direction: column;
         align-items: center;
         padding: 15px;
+    }
+
+    &__thumbnail{
+        width:250px;
+        height:100%;
+        margin-right:20px;
+        object-fit: contain;
     }
 
     &__tag {

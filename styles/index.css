@@ -10,7 +10,7 @@
 }
 
 body {
-  background: #C4C4C4;
+  background: #E4E4E4;
   font-family: 'Cantarell', sans-serif;
   width: 100%;
   font-size: 18px;
@@ -137,6 +137,16 @@ label {
   margin-top: 10px;
 }
 
+#logOut {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: white;
+  padding: 15px;
+  font-size: 15px;
+  border: solid white;
+  background-color: transparent;
+}
+
 .menu {
   position: fixed;
   display: -webkit-box;
@@ -216,6 +226,7 @@ label {
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   color: #FFFFFF;
+  padding: 15px;
 }
 
 .menu__item--button {
@@ -579,10 +590,23 @@ label {
   display: block;
   width: 32%;
   text-decoration: none;
-  border: solid 1px #555555;
-  border-radius: 10px;
   margin: 20px 0px 20px 0px;
   background-color: #FFF;
+}
+
+.product--cart {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+  height: 150px;
 }
 
 .product__image {
@@ -604,6 +628,14 @@ label {
       -ms-flex-align: center;
           align-items: center;
   padding: 15px;
+}
+
+.product__thumbnail {
+  width: 250px;
+  height: 100%;
+  margin-right: 20px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .product__tag {

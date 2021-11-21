@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magokoro-cart</title>
+    <!--Google Styles-->
+        <!--Cantarell-->
+        <!--Open Sans-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+            rel="stylesheet">
+        <!--CSS-->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="./styles/index.css">
+</head>
+<body>
+    <header>
+        <nav class="menu" id="menu">
+            <div class="menu__logo">
+                <figure>
+                    <img src="./img/logowhite.png" alt="logoMagokoro">
+                </figure>
+                <p class="menu__logo--name">MAGOKORO</p>
+            </div>
+
+            <ul class="menu__list" id="menulist">
+                <!--Home-->
+                <li class="menu__item">
+                    <a href='./index.html'>
+                        LA GRANJA
+                    </a>
+                </li>
+                <!--Products-->
+                <li class="menu__item">
+                    <a href='./products.html'>
+                        PRODUCTOS
+                    </a>
+                </li class="menu__item">
+                <!--About-->
+                <li class="menu__item">
+                    <a href='#'>
+                        CONOCENOS
+                    </a>
+                </li>
+                <!--Log In-->
+                <li class="auth menu__item--button" id="loginButton">
+                    <a href="./login.html">INGRESAR</a>
+                </li>
+                <li class="auth menu__item--username hidden" id="username"></li>
+                <li><button id="logOut" class="auth hidden">Cerrar Sesión</button></li>
+                <li class="menu__close" id="close">
+                    X
+                </li>
+            </ul>
+            <button class="menu__item--action" id="openMenu">
+                <img src="https://img.icons8.com/material-rounded/24/000000/menu--v1.png" />
+            </button>
+        </nav>
+    </header>
+    
+    <section class="cart">
+        <ul class="products" id="cart"></ul>
+        <h3 class="total" id="total"></h3>
+
+        <button id="autofill">Usar mismos datos del usuario</button>
+            <form id="checkout">
+                <input type="text" name="name" placeholder="Nombre completo">
+                <input type="text" name="city" placeholder="Cuidad">
+                <input type="text" name="address" placeholder="Dirección de residencia">
+                <select name="payment">
+                    <option value="contraentrega">Pago contra entrega</option>
+                    <option value="pse">PSE</option>
+                </select>
+                <input type="submit" value="Completar compra">
+            </form>
+
+
+    </section>
+
+
+
+    <!--Los js-->
+    <script src="./js/utils.js"></script>
+
+    <script type="module" src="./js/cart.js"></script>
+</body>
+</html>
