@@ -42,10 +42,13 @@ const removeProduct = async (productId) => {
 
     console.log(cityRef.id);
 
-    
-    await updateDoc(cityRef, {
-        products: deleteField()
-    });
+    console.log(cityRef.path);
+
+    //Buscar una manera que encuentre el order osea, literalmente que me quede products/0: deleteField() para poder borrar estas vainas porque no me funcionan, además, me borran todo literalmente.
+
+    // await updateDoc(cityRef, {
+    //     products: deleteField()
+    // });
 
     renderMyCart(cart);
 

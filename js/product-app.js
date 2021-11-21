@@ -142,6 +142,8 @@ const productTemplate = (item) => {
         // Dirigirme a otra página (enlace - a) && Refrescar la página (form)
         e.preventDefault();
 
+        console.log(item.id);
+
         const productAdded = {
             id: item.id,
             name: item.name,
