@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -69,6 +69,22 @@ registerBtn.addEventListener("submit", e => {
 const loginButton = document.getElementById("loginButton");
 const username = document.getElementById("username");
 
+const logOutButton = document.getElementById("logOut");
+
+logOutButton.addEventListener("click", e => {
+    logOut();
+    console.log("Cerro sesión el usuario");
+});
+
+const logOut = async () => {
+    try {
+        await signOut(auth);
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+
 onAuthStateChanged(auth, async (user) => {
     if(user){
         loginButton.classList.add("hidden");
@@ -76,7 +92,9 @@ onAuthStateChanged(auth, async (user) => {
         username.innerHTML = userInfo.name;
         username.classList.remove("hidden");  
         username.classList.add("visible");
+        logOutButton.classList.add("visible");
     } else {
+        logOutButton.classList.remove("visible");
         loginButton.classList.remove("hidden");
         username.classList.add("hidden");
         username.classList.remove("visible");

@@ -5,11 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
+    <!--Google Styles-->
+    <!--Cantarell-->
+    <!--Open Sans-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!--CSS-->
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/mobile.css">
 </head>
 <body>
     <header>
-        <nav class="menu" id="menu">
+        <nav class="menu menu--simple" id="menu">
             <div class="menu__logo">
                 <figure>
                     <img src="./img/logowhite.png" alt="logoMagokoro">
@@ -38,10 +48,10 @@
                 </li>
                 <!--Log In-->
                 <li class="auth menu__item--button" id="loginButton">
-                    <a href="#">INGRESAR</a>
+                    <a href="./login.html">INGRESAR</a>
                 </li>
                 <li class="auth menu__item--username hidden" id="username"></li>
-                <li><button id="logOut" class="auth">Cerrar Sesión</button></li>
+                <li><button id="logOut" class="auth hidden">Cerrar Sesión</button></li>
                 <li class="menu__close" id="close">
                     X
                 </li>

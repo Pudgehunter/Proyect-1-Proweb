@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
-import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
 import { getFirestore, doc, collection, getDoc, getDocs , setDoc} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
@@ -232,6 +232,19 @@ if (getFilteredProduct()) {
         console.log(product);
         productTemplate(product);
     });
+}
+
+logOutButton.addEventListener("click", e => {
+    logOut();
+    console.log("Cerro sesión el usuario");
+});
+
+const logOut = async () => {
+    try {
+        await signOut(auth);
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 

@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
-import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
 import { getFirestore, getDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
@@ -15,6 +15,18 @@ const addProductsCart = async (products) => {
         products
     });
 };
+
+//Recibir datos del usuario
+//Recibir datos
+const getUserInfo = async (userId) => {
+    try {
+        const docRef = doc(db, "users", userId);
+        const docSnap = await getDoc(docRef);
+        return docSnap.data();        
+    } catch (e) {
+        console.log(e);
+    }
+}
 
 //Recibir los datos del carrito
 const getFirebaseCart = async (userId) => {
@@ -131,6 +143,22 @@ productCartButton.addEventListener("click", async e => {
 
 getProduct();
 
+const logOutButton = document.getElementById("logOut");
+
+logOutButton.addEventListener("click", e => {
+    logOut();
+    console.log("Cerro sesión el usuario");
+});
+
+const logOut = async () => {
+    try {
+        await signOut(auth);
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+
 onAuthStateChanged(auth, async (user) => {
     if(user){
         //Los datos del firebase carrito
@@ -139,8 +167,30 @@ onAuthStateChanged(auth, async (user) => {
             cart = result.products;
         }
         userLogged = user;
+
+        loginButton.classList.add("hidden");
+        //Los datos del firebase del usuario
+        const userInfo = await getUserInfo(user.uid);
+        username.innerHTML = userInfo.name;
+        logOutButton.classList.add("visible");
+        username.classList.remove("hidden");  
+        username.classList.add("visible");
     } else {
         cart = getMyCart();
+
+        loginButton.classList.remove("hidden");
+        logOutButton.classList.remove("visible");
+        username.classList.add("hidden");
+        username.classList.remove("visible");
     }
 });
 
+
+window.onscroll = function (e) {
+    const posY = document.documentElement.scrollTop;
+    if (posY >= 150) {
+      menu.classList.add('menu--scroll');
+    } else {
+      menu.classList.remove('menu--scroll');
+    }
+  }
