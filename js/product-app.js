@@ -38,6 +38,7 @@ const getUserInfo = async (userId) => {
 const getFirebaseCart = async (userId) => {
     const docRef = doc(db, "cart", userId);
     const docSnap = await getDoc(docRef);
+    //console.log(docSnap.data());
     return docSnap.exists() ? docSnap.data() : {
         products: []
     }
@@ -53,7 +54,7 @@ const getAllProducts = async () => {
     productsSection.classList.add("loaded");
     spinner.classList.add("loaded");
 
-    const products = docs.map((doc) => {
+    products = docs.map((doc) => {
         return {
             ...doc.data(),
             id: doc.id,
@@ -216,24 +217,6 @@ orderBySelect.addEventListener("change", e => {
 });
 
 
-const getFilteredProduct = () => {
-    const url = window.location.search;
-    const searchParams = new URLSearchParams(url);
-    //console.log(searchParams.get("type"));
-
-    return searchParams.get("type") || null;
-}
-
-// Recorro cada uno de los productos que tengo en mi arreglo
-if (getFilteredProduct()) {
-    const filteredProductsByCategory = products.filter((product) => product.type === getFilteredProduct());
-    filteredProductsByCategory.forEach(product => {
-        // Llamo la funcion productTemplate para cada product.
-        console.log(product);
-        productTemplate(product);
-    });
-}
-
 logOutButton.addEventListener("click", e => {
     logOut();
     console.log("Cerro sesión el usuario");
@@ -270,6 +253,6 @@ onAuthStateChanged(auth, async (user) => {
         username.classList.add("hidden");
         username.classList.remove("visible");
     }
-    getAllProducts();
+    
 });
-
+getAllProducts();

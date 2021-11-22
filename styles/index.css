@@ -683,8 +683,18 @@ label {
 .product_a .product__image {
   width: 50%;
   border: none;
-  height: 500px;
+  height: 100%;
+  margin-top: 0;
   margin-right: 20px;
+}
+
+.product_a .product__paragraph {
+  padding: 10px 30px 10px 30px;
+  font-size: 18px;
+}
+
+.product_a .product__price {
+  font-size: 24px;
 }
 
 .total {
