@@ -231,6 +231,7 @@ const logOut = async () => {
     }
 }
 
+const admin = document.getElementById("admin");
 
 onAuthStateChanged(auth, async (user) => {
     if(user){
@@ -244,11 +245,17 @@ onAuthStateChanged(auth, async (user) => {
         //Los datos del firebase del usuario
         const userInfo = await getUserInfo(user.uid);
         username.innerHTML = userInfo.name;
+        if(userInfo.isAdmin == true){
+            admin.classList.add("visible");
+        } else if(userInfo.isAdmin == false){
+                admin.classList.remove("visible");
+        }
         logOutButton.classList.add("visible");
         username.classList.remove("hidden");  
         username.classList.add("visible");
     } else {
         cart = getMyCart();
+        admin.classList.remove("visible");
         loginButton.classList.remove("hidden");
         logOutButton.classList.remove("visible");
         username.classList.add("hidden");

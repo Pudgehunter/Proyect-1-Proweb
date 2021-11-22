@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
-import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-storage.js";
 import { getFirestore, doc, getDoc, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
@@ -110,20 +110,30 @@ logOutButton.addEventListener("click", e => {
 const logOut = async () => {
     try {
         await signOut(auth);
+        window.location ="./login.html";
     } catch (e) {
         console.log(e);
     }
 }
+
+const admin = document.getElementById("admin");
 
 onAuthStateChanged(auth, async (user) => {
     if(user){
         loginButton.classList.add("hidden");
         const userInfo = await getUserInfo(user.uid);
         username.innerHTML = userInfo.name;
+        console.log(userInfo);
+        if(userInfo.isAdmin == true){
+            admin.classList.add("visible");
+        } else if(userInfo.isAdmin == false){
+            admin.classList.remove("hidden");
+        }
         username.classList.remove("hidden");  
         username.classList.add("visible");
         logOutButton.classList.add("visible");
     } else {
+        admin.classList.remove("visible");
         logOutButton.classList.remove("visible");
         loginButton.classList.remove("hidden");
         username.classList.add("hidden");

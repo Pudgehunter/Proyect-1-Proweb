@@ -199,6 +199,8 @@ const logOut = async () => {
     }
 }
 
+const admin = document.getElementById("admin");
+
 //Usuario
 onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -218,6 +220,11 @@ onAuthStateChanged(auth, async (user) => {
 
         loginButton.classList.add("hidden");
         //Los datos del firebase del usuario
+        if(userInfo.isAdmin == true){
+            admin.classList.add("visible");
+        } else if(userInfo.isAdmin == false){
+                admin.classList.remove("visible");
+        }
 
         username.innerHTML = userInfo.name;
         logOutButton.classList.add("visible");
@@ -226,6 +233,7 @@ onAuthStateChanged(auth, async (user) => {
 
     } else {
         cart = getMyCart();
+        admin.classList.remove("visible");
         logOutButton.classList.remove("visible");
         loginButton.classList.remove("hidden");
         username.classList.add("hidden");
