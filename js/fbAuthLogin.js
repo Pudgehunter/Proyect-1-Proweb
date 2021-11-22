@@ -33,6 +33,8 @@ const logIn = async (email, password) => {
         console.log(`Bienvenido ${userInfo.name}`);
 
         alert("Pues supuestamente ingresaste we");
+
+        window.location ="./index.html";
     }catch(e){
         console.log(e);
         if(e.code === "auth/wrong-password"){

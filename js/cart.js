@@ -193,6 +193,7 @@ logOutButton.addEventListener("click", e => {
 const logOut = async () => {
     try {
         await signOut(auth);
+        window.location ="./login.html";
     } catch (e) {
         console.log(e);
     }
