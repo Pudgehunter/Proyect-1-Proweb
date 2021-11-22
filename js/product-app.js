@@ -12,16 +12,6 @@ let cart = [];
 
 const logOutButton = document.getElementById("logOut");
 
-
-window.onscroll = function (e) {
-    const posY = document.documentElement.scrollTop;
-    if (posY >= 150) {
-      menu.classList.add('menu--scroll');
-    } else {
-      menu.classList.remove('menu--scroll');
-    }
-  }
-
 //Recibir datos del usuario
 //Recibir datos
 const getUserInfo = async (userId) => {
@@ -38,7 +28,6 @@ const getUserInfo = async (userId) => {
 const getFirebaseCart = async (userId) => {
     const docRef = doc(db, "cart", userId);
     const docSnap = await getDoc(docRef);
-    //console.log(docSnap.data());
     return docSnap.exists() ? docSnap.data() : {
         products: []
     }
@@ -151,8 +140,6 @@ const productTemplate = (item) => {
         // Dirigirme a otra página (enlace - a) && Refrescar la página (form)
         e.preventDefault();
 
-        console.log(item.id);
-
         const productAdded = {
             id: item.id,
             name: item.name,
@@ -187,11 +174,8 @@ const loadProducts = () => {
 
     let filteredProductsByCategory;
 
-    console.log(category);
-
     if (category !== "") {
         filteredProductsByCategory = products.filter((product) => product.type === category);
-        console.log(products);
     } else {
         filteredProductsByCategory = products;
     }
@@ -219,7 +203,6 @@ orderBySelect.addEventListener("change", e => {
 
 logOutButton.addEventListener("click", e => {
     logOut();
-    console.log("Cerro sesión el usuario");
 });
 
 const logOut = async () => {

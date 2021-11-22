@@ -36,7 +36,6 @@ const uploadMainImage = async (file) => {
     try {
         const storageRef = ref(storage, `products/images/${file.name}`);
         const image = await uploadBytes(storageRef, file);
-        console.log(image);
         return await getDownloadURL(ref(storage, image.ref.fullPath));
     } catch (e) {
         console.log(e);
@@ -91,7 +90,7 @@ const createProduct = async () => {
             feedback.innerText = "Ups, algo salio mal...";
         }
     } else {
-        console.log("completa todos los datos...")
+        alert("Completa los datos");
     }
 }
 
@@ -104,7 +103,6 @@ const logOutButton = document.getElementById("logOut");
 
 logOutButton.addEventListener("click", e => {
     logOut();
-    console.log("Cerro sesión el usuario");
 });
 
 const logOut = async () => {
@@ -123,7 +121,6 @@ onAuthStateChanged(auth, async (user) => {
         loginButton.classList.add("hidden");
         const userInfo = await getUserInfo(user.uid);
         username.innerHTML = userInfo.name;
-        console.log(userInfo);
         if(userInfo.isAdmin == true){
             admin.classList.add("visible");
         } else if(userInfo.isAdmin == false){

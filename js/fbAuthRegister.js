@@ -44,7 +44,6 @@ const registerBtn = document.getElementById("register");
 
 registerBtn.addEventListener("submit", e => {
     e.preventDefault();
-    console.log("asdfasdfdsf");
     const name = registerBtn.name.value;
     const email = registerBtn.email.value;
     const password = registerBtn.password.value;
@@ -73,7 +72,6 @@ const logOutButton = document.getElementById("logOut");
 
 logOutButton.addEventListener("click", e => {
     logOut();
-    console.log("Cerro sesión el usuario");
 });
 
 const logOut = async () => {
@@ -108,6 +106,3 @@ onAuthStateChanged(auth, async (user) => {
         username.classList.remove("visible");
     }
 });
-
-
-

@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
-import { getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
 import { getFirestore, getDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
@@ -11,7 +11,7 @@ let cart = [];
 
 //Función para agregar carrito
 const addProductsCart = async (products) => {
-    await setDoc(doc(db,"cart",userLogged.uid),{
+    await setDoc(doc(db, "cart", userLogged.uid), {
         products
     });
 };
@@ -22,7 +22,7 @@ const getUserInfo = async (userId) => {
     try {
         const docRef = doc(db, "users", userId);
         const docSnap = await getDoc(docRef);
-        return docSnap.data();        
+        return docSnap.data();
     } catch (e) {
         console.log(e);
     }
@@ -43,11 +43,9 @@ const getProduct = async () => {
     const searchParams = new URLSearchParams(url);
     const productId = searchParams.get("id");
 
-    const docRef = doc(db, "products" , productId );
+    const docRef = doc(db, "products", productId);
     const docSnap = await getDoc(docRef);
     const data = docSnap.data();
-
-    console.log(data);
 
     productSection.classList.add("loaded");
     spinner.classList.add("loaded");
@@ -71,10 +69,10 @@ const loadProductInfo = (product) => {
     productName.innerText = product.name;
     productDescription.innerText = product.description;
     productPrice.innerText = `$  ${product.price}`;
-    
+
     productImage.setAttribute("src", product.image);
 
-    if(product.images){
+    if (product.images) {
         createGallery(product.images);
     }
 }
@@ -95,7 +93,7 @@ const createGallery = (images) => {
     const productGalleryImages = document.querySelector(".product__image > #gallery > div");
 
     productGalleryImages.addEventListener("click", e => {
-        if(e.target.tagName === "IMG"){
+        if (e.target.tagName === "IMG") {
             const imageSource = e.target.currentSrc;
             productImage.setAttribute("src", imageSource);
         }
@@ -113,11 +111,9 @@ productCartButton.addEventListener("click", async e => {
     const searchParams = new URLSearchParams(url);
     const productId = searchParams.get("id");
 
-    const docRef = doc(db, "products" , productId );
+    const docRef = doc(db, "products", productId);
     const docSnap = await getDoc(docRef);
     const data = docSnap.data();
-
-    console.log(productId);
 
     const productAdded = {
         id: productId,
@@ -128,12 +124,9 @@ productCartButton.addEventListener("click", async e => {
 
     cart.push(productAdded);
 
-    if(userLogged){
+    if (userLogged) {
         addProductsCart(cart);
     }
-
-    //funciono?
-    console.log("Funciona pero noe esta llevando a firebase todavia");
 
     // Deshabilito el botón
     productCartButton.setAttribute("disabled", true);
@@ -147,13 +140,12 @@ const logOutButton = document.getElementById("logOut");
 
 logOutButton.addEventListener("click", e => {
     logOut();
-    console.log("Cerro sesión el usuario");
 });
 
 const logOut = async () => {
     try {
         await signOut(auth);
-        window.location ="./login.html";
+        window.location = "./login.html";
     } catch (e) {
         console.log(e);
     }
@@ -162,10 +154,10 @@ const logOut = async () => {
 const admin = document.getElementById("admin");
 
 onAuthStateChanged(auth, async (user) => {
-    if(user){
+    if (user) {
         //Los datos del firebase carrito
         const result = await getFirebaseCart(user.uid);
-        if(cart != null){
+        if (cart != null) {
             cart = result.products;
         }
         userLogged = user;
@@ -174,13 +166,13 @@ onAuthStateChanged(auth, async (user) => {
         //Los datos del firebase del usuario
         const userInfo = await getUserInfo(user.uid);
         username.innerHTML = userInfo.name;
-        if(userInfo.isAdmin == true){
+        if (userInfo.isAdmin == true) {
             admin.classList.add("visible");
-        } else if(userInfo.isAdmin == false){
-                admin.classList.remove("visible");
+        } else if (userInfo.isAdmin == false) {
+            admin.classList.remove("visible");
         }
         logOutButton.classList.add("visible");
-        username.classList.remove("hidden");  
+        username.classList.remove("hidden");
         username.classList.add("visible");
     } else {
         cart = getMyCart();
@@ -191,13 +183,3 @@ onAuthStateChanged(auth, async (user) => {
         username.classList.remove("visible");
     }
 });
-
-
-window.onscroll = function (e) {
-    const posY = document.documentElement.scrollTop;
-    if (posY >= 150) {
-      menu.classList.add('menu--scroll');
-    } else {
-      menu.classList.remove('menu--scroll');
-    }
-  }

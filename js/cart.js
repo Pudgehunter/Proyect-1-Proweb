@@ -38,12 +38,6 @@ const removeProduct = async (productId) => {
 
     const cityRef = doc(db, 'cart', userLogged.uid);
 
-    console.log(cityRef);
-
-    console.log(cityRef.id);
-
-    console.log(cityRef.path);
-
     //Buscar una manera que encuentre el order osea, literalmente que me quede products/0: deleteField() para poder borrar estas vainas porque no me funcionan, además, me borran todo literalmente.
 
     // await updateDoc(cityRef, {
@@ -81,7 +75,6 @@ const renderProduct = (product) => {
     newProduct.addEventListener("click", e => {
         if (e.target.tagName === "BUTTON") {
             removeProduct(product.id);
-            console.log(product.id);
         }
     });
 
@@ -110,10 +103,8 @@ const renderMyCart = (cart) => {
 //Remove
 const deleteCart = async () => {
     try {
-        console.log(userLogged.uid);
         await deleteDoc(doc(db, "cart", userLogged.uid));
         renderMyCart([]);
-        console.log("Carrito de compras actualizado...");
     } catch (e) {
         console.log(e);
     }
@@ -170,30 +161,16 @@ checkoutForm.addEventListener("submit", e => {
     }
 });
 
-
-
-
-
-window.onscroll = function (e) {
-    const posY = document.documentElement.scrollTop;
-    if (posY >= 150) {
-        menu.classList.add('menu--scroll');
-    } else {
-        menu.classList.remove('menu--scroll');
-    }
-}
-
 const logOutButton = document.getElementById("logOut");
 
 logOutButton.addEventListener("click", e => {
     logOut();
-    console.log("Cerro sesión el usuario");
 });
 
 const logOut = async () => {
     try {
         await signOut(auth);
-        window.location ="./login.html";
+        window.location = "./login.html";
     } catch (e) {
         console.log(e);
     }
@@ -206,9 +183,7 @@ onAuthStateChanged(auth, async (user) => {
     if (user) {
         //Los datos del firebase carrito
         const result = await getFirebaseCart(user.uid);
-        console.log(result);
         cart = result.products;
-        //console.log(cart);
         renderMyCart(cart);
 
         const userInfo = await getUserInfo(user.uid);
@@ -216,14 +191,13 @@ onAuthStateChanged(auth, async (user) => {
             ...user,
             ...userInfo
         };
-        //console.log(userInfo);
 
         loginButton.classList.add("hidden");
         //Los datos del firebase del usuario
-        if(userInfo.isAdmin == true){
+        if (userInfo.isAdmin == true) {
             admin.classList.add("visible");
-        } else if(userInfo.isAdmin == false){
-                admin.classList.remove("visible");
+        } else if (userInfo.isAdmin == false) {
+            admin.classList.remove("visible");
         }
 
         username.innerHTML = userInfo.name;
