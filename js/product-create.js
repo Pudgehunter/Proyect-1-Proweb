@@ -100,6 +100,21 @@ createProductForm.addEventListener("submit", e => {
     createProduct();
 });
 
+const logOutButton = document.getElementById("logOut");
+
+logOutButton.addEventListener("click", e => {
+    logOut();
+    console.log("Cerro sesión el usuario");
+});
+
+const logOut = async () => {
+    try {
+        await signOut(auth);
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 onAuthStateChanged(auth, async (user) => {
     if(user){
         loginButton.classList.add("hidden");
@@ -107,7 +122,9 @@ onAuthStateChanged(auth, async (user) => {
         username.innerHTML = userInfo.name;
         username.classList.remove("hidden");  
         username.classList.add("visible");
+        logOutButton.classList.add("visible");
     } else {
+        logOutButton.classList.remove("visible");
         loginButton.classList.remove("hidden");
         username.classList.add("hidden");
         username.classList.remove("visible");
