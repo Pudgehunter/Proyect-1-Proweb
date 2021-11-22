@@ -589,6 +589,10 @@ label {
           align-items: center;
 }
 
+.product__description:hover {
+  background-color: #55555580;
+}
+
 .product__thumbnail {
   width: 250px;
   height: 100%;
@@ -598,7 +602,7 @@ label {
 }
 
 .product__tag {
-  color: #FFF;
+  color: #555555;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: .9em;

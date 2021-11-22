@@ -479,7 +479,9 @@ label{
         display:flex;
         flex-direction: column;
         align-items: center;
-        
+        &:hover{
+            background-color: $blackTransparent;
+        }
     }
 
     &__thumbnail{
@@ -490,7 +492,7 @@ label{
     }
 
     &__tag {
-        color: #FFF;
+        color: $black;
         padding: 5px 10px;
         border-radius: 5px;
         font-size: .9em;
