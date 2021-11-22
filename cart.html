@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magokoro-cart</title>
     <!--Google Styles-->
-        <!--Cantarell-->
-        <!--Open Sans-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
-            rel="stylesheet">
-        <!--CSS-->
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-        <link rel="stylesheet" href="./styles/index.css">
+    <!--Cantarell-->
+    <!--Open Sans-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/mobile.css">
 </head>
+
 <body>
     <header>
-        <nav class="menu" id="menu">
+        <nav class="menu menu--simple" id="menu">
             <div class="menu__logo">
                 <figure>
                     <img src="./img/logowhite.png" alt="logoMagokoro">
@@ -42,8 +45,8 @@
                 </li class="menu__item">
                 <!--About-->
                 <li class="menu__item">
-                    <a href='#'>
-                        CONOCENOS
+                    <a href='./cart.html'>
+                        MI CARRO
                     </a>
                 </li>
                 <!--Log In-->
@@ -61,23 +64,40 @@
             </button>
         </nav>
     </header>
-    
-    <section class="cart">
-        <ul class="products" id="cart"></ul>
-        <h3 class="total" id="total"></h3>
 
-        <button id="autofill">Usar mismos datos del usuario</button>
-            <form id="checkout">
-                <input type="text" name="name" placeholder="Nombre completo">
-                <input type="text" name="city" placeholder="Cuidad">
-                <input type="text" name="address" placeholder="Dirección de residencia">
-                <select name="payment">
+    <section class="cart">
+        <h2 class="text-center">Tu carrito</h2>
+        <ul class="products" id="cart"></ul>
+        <h2 class="total" id="total"></h2>
+        <!--loading-->
+        <div class="lds-roller" id="spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="payment">
+            <h2>Método de pago</h2>
+            <button id="autofill">Usar mismos datos del usuario</button>
+            <form class="payment__items" id="checkout">
+                <label>Nombre completo</label>
+                <input class="payment__item" type="text" name="name" placeholder="">
+                <label>Dirección</label>
+                <input class="payment__item" type="text" name="address" placeholder="">
+                <label>Ciudad</label>
+                <input class="payment__item" type="text" name="city" placeholder="">
+                <label>Selecciona el tipo de pago</label>
+                <select name="payment__item-select">
                     <option value="contraentrega">Pago contra entrega</option>
                     <option value="pse">PSE</option>
                 </select>
                 <input type="submit" value="Completar compra">
             </form>
-
+        </div>
 
     </section>
 
@@ -102,6 +122,7 @@
             </div>
         </div>
         <h4 class="text-center">©2020 Magokoro.</h4>
+
     </footer>
 
     <!--Los js-->
@@ -109,4 +130,5 @@
 
     <script type="module" src="./js/cart.js"></script>
 </body>
+
 </html>

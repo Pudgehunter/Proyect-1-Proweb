@@ -44,6 +44,7 @@ const getFirebaseCart = async (userId) => {
 };
   
 const spinner = document.getElementById("spinner");
+
 //Lectura de firebase
 const getAllProducts = async () => {
     const collectionRef = collection(db, "products");
@@ -107,7 +108,7 @@ const productTemplate = (item) => {
     } else if (item.isBestSeller) {
         tagHtml = `<span class="product__tag product__tag--best-seller">Más vendido</span>`;
     } else {
-        tagHtml = "";
+        tagHtml = `<span class="product__tag">Normal</span>`;
     }
 
     // Lógica para saber si un producto ya fue añadido al carrito
@@ -128,8 +129,8 @@ const productTemplate = (item) => {
     product.innerHTML = `
     <div class="product__description">
         <h2 class="product__name">${item.name}</h2>
+        ${tagHtml}
         <img src="${item.image !== '' ? item.image : thumbnail}" alt="${item.name}" class="product__image">
-            ${tagHtml}
             <h3 class="product__price">$ ${item.price}</h3>
             ${buttonHtml}
     </div>
@@ -176,43 +177,63 @@ const productTemplate = (item) => {
 const filterByCategory = document.getElementById("categories");
 const orderBySelect = document.getElementById("orderBy");
 
-
 const loadProducts = () => {
-
     const category = filterByCategory.value || "";
     const order = orderBySelect.value || "";
 
+    //Borra los productos de antes
     productsSection.innerHTML = "";
 
-    let filteredProductByCategory;
+    let filteredProductsByCategory;
+
+    console.log(category);
 
     if (category !== "") {
-        filteredProductByCategory = products.filter((product) => product.type === category);
+        filteredProductsByCategory = products.filter((product) => product.type === category);
+        console.log(products);
     } else {
-        filteredProductByCategory = products;
+        filteredProductsByCategory = products;
     }
 
-    if (order === "asc") {
-        filteredProductByCategory = filteredProductByCategory.sort((a, b) => a.price - b.price);
+    if (order === "asc"){
+        filteredProductsByCategory = filteredProductsByCategory.sort((a, b) => a.price - b.price);
+    }
+    if (order === "desc"){
+        filteredProductsByCategory = filteredProductsByCategory.sort((a, b) => b.price - a.price);
     }
 
-    if (order === "desc") {
-        filteredProductByCategory = filteredProductByCategory.sort((a, b) => b.price - a.price);
-    }
-
-    filteredProductByCategory.forEach(product => {
+    filteredProductsByCategory.forEach(product => {
         productTemplate(product);
     });
-
 }
+
+filterByCategory.addEventListener("change", e => {
+    loadProducts();
+});
 
 orderBySelect.addEventListener("change", e => {
     loadProducts();
 });
 
-filterByCategory.addEventListener("change", e => {
-    loadProducts();
-});
+
+const getFilteredProduct = () => {
+    const url = window.location.search;
+    const searchParams = new URLSearchParams(url);
+    //console.log(searchParams.get("type"));
+
+    return searchParams.get("type") || null;
+}
+
+// Recorro cada uno de los productos que tengo en mi arreglo
+if (getFilteredProduct()) {
+    const filteredProductsByCategory = products.filter((product) => product.type === getFilteredProduct());
+    filteredProductsByCategory.forEach(product => {
+        // Llamo la funcion productTemplate para cada product.
+        console.log(product);
+        productTemplate(product);
+    });
+}
+
 
 onAuthStateChanged(auth, async (user) => {
     if(user){

@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
-import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
-import { getFirestore, doc, getDoc, addDoc, collection, deleteDoc, updateDoc, deleteField  } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, addDoc, collection, deleteDoc, updateDoc, deleteField } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -22,7 +22,7 @@ const getUserInfo = async (userId) => {
     try {
         const docRef = doc(db, "users", userId);
         const docSnap = await getDoc(docRef);
-        return docSnap.data();        
+        return docSnap.data();
     } catch (e) {
         console.log(e);
     }
@@ -71,9 +71,9 @@ const renderProduct = (product) => {
         <img src="${product.image}" alt="" class="product__thumbnail">
         <div class="product__info">
             <h2 class="product__name">${product.name}</h2>
-            <h3 class="product__price">${formatCurrency(parseInt(product.price))}</h3>
+            <p class="product__price">${formatCurrency(parseInt(product.price))}</p>
+            <button class="product__cart-cart product__cart--thumb">Remove</button>
         </div>
-        <button class="product__cart product__cart--thumb">Remove</button>
     `;
 
     cartSection.appendChild(newProduct);
@@ -87,9 +87,16 @@ const renderProduct = (product) => {
 
 };
 
+//Spinner
+const spinner = document.getElementById("spinner");
+
+
 const renderMyCart = (cart) => {
     total = 0;
     cartSection.innerHTML = "";
+
+    cartSection.classList.add("loaded");
+    spinner.classList.add("loaded");
 
     cart.forEach(product => {
         total += parseInt(product.price);
@@ -107,7 +114,7 @@ const deleteCart = async () => {
         await deleteDoc(doc(db, "cart", userLogged.uid));
         renderMyCart([]);
         console.log("Carrito de compras actualizado...");
-    } catch(e) {
+    } catch (e) {
         console.log(e);
     }
 };
@@ -133,8 +140,8 @@ const createOrder = async (userFields) => {
 //Nuevo
 autocompleteFields.addEventListener("click", e => {
     checkoutForm.name.value = userLogged.name;
-    checkoutForm.city.value = userLogged.city;
     checkoutForm.address.value = userLogged.address;
+    checkoutForm.city.value = userLogged.city;
 });
 
 
@@ -143,8 +150,8 @@ checkoutForm.addEventListener("submit", e => {
     e.preventDefault();
 
     const name = checkoutForm.name.value;
-    const city = checkoutForm.city.value;
     const address = checkoutForm.address.value;
+    const city = checkoutForm.city.value;
 
     const userFields = {
         name,
@@ -167,12 +174,33 @@ checkoutForm.addEventListener("submit", e => {
 
 
 
+window.onscroll = function (e) {
+    const posY = document.documentElement.scrollTop;
+    if (posY >= 150) {
+        menu.classList.add('menu--scroll');
+    } else {
+        menu.classList.remove('menu--scroll');
+    }
+}
 
+const logOutButton = document.getElementById("logOut");
 
+logOutButton.addEventListener("click", e => {
+    logOut();
+    console.log("Cerro sesión el usuario");
+});
+
+const logOut = async () => {
+    try {
+        await signOut(auth);
+    } catch (e) {
+        console.log(e);
+    }
+}
 
 //Usuario
 onAuthStateChanged(auth, async (user) => {
-    if(user){
+    if (user) {
         //Los datos del firebase carrito
         const result = await getFirebaseCart(user.uid);
         console.log(result);
@@ -191,11 +219,13 @@ onAuthStateChanged(auth, async (user) => {
         //Los datos del firebase del usuario
 
         username.innerHTML = userInfo.name;
-        username.classList.remove("hidden");  
+        logOutButton.classList.add("visible");
+        username.classList.remove("hidden");
         username.classList.add("visible");
-        
+
     } else {
         cart = getMyCart();
+        logOutButton.classList.remove("visible");
         loginButton.classList.remove("hidden");
         username.classList.add("hidden");
         username.classList.remove("visible");
