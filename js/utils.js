@@ -19,8 +19,8 @@ const formatCurrency = (price) => {
 window.onscroll = function (e) {
     const posY = document.documentElement.scrollTop;
     if (posY >= 150) {
-      menu.classList.add('menu--scroll');
+        menu.classList.add('menu--scroll');
     } else {
-      menu.classList.remove('menu--scroll');
+        menu.classList.remove('menu--scroll');
     }
-  }
+}
