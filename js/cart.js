@@ -148,6 +148,10 @@ autocompleteFields.addEventListener("click", e => {
 });
 
 
+const paymentId = document.getElementById("paymentId");
+const paymentAddress = document.getElementById("paymentAddress");
+const paymentName = document.getElementById("paymentName");
+
 //Nuevo
 checkoutForm.addEventListener("submit", e => {
     e.preventDefault();
@@ -171,6 +175,10 @@ checkoutForm.addEventListener("submit", e => {
     } else {
         alert("Selecciona algunos productos...")
     }
+    
+    checkoutForm.name.value = "";
+    checkoutForm.address.value = "";
+    checkoutForm.city.value = "";
 });
 
 const logOutButton = document.getElementById("logOut");
