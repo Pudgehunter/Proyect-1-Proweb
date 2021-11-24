@@ -110,6 +110,9 @@ label {
             display: flex;
             flex-direction: row;
             margin-bottom: 30px;
+            & a:hover{
+                color: $blue;
+            }
         }
     }
     & #logIn,
@@ -138,6 +141,10 @@ label {
             width: 198px;
             height: 45px;
             margin-top: $margin;
+        }
+        & input:hover[type="submit"]{
+            color: white;
+            background-color: $green;
         }
     }
 }

@@ -121,6 +121,10 @@ label {
   margin-bottom: 30px;
 }
 
+.sign__text--subtitle a:hover {
+  color: #3483fa;
+}
+
 .sign #logIn p,
 .sign #createProduct p,
 .sign #register p {
@@ -158,6 +162,13 @@ label {
   width: 198px;
   height: 45px;
   margin-top: 10px;
+}
+
+.sign #logIn input:hover[type="submit"],
+.sign #createProduct input:hover[type="submit"],
+.sign #register input:hover[type="submit"] {
+  color: white;
+  background-color: #0b8c00;
 }
 
 #logOut {
