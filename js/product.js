@@ -50,6 +50,13 @@ const getProduct = async () => {
     productSection.classList.add("loaded");
     spinner.classList.add("loaded");
 
+    // disabled que no me funciono sadmente
+    const isAdded = cart.some(productCart => productCart.id === productId);
+    
+    if (isAdded) {
+        productCartButton.classList = "disabled";
+    }
+
     loadProductInfo(data);
 }
 
@@ -115,6 +122,8 @@ productCartButton.addEventListener("click", async e => {
     const docSnap = await getDoc(docRef);
     const data = docSnap.data();
 
+    
+
     const productAdded = {
         id: productId,
         name: data.name,
@@ -130,6 +139,7 @@ productCartButton.addEventListener("click", async e => {
 
     // Deshabilito el botón
     productCartButton.setAttribute("disabled", true);
+    productCartButton.innerHTML = "Producto añadido";
 });
 
 
@@ -159,7 +169,10 @@ onAuthStateChanged(auth, async (user) => {
         const result = await getFirebaseCart(user.uid);
         if (cart != null) {
             cart = result.products;
+        } else {
+            //cart.getMyCart();
         }
+
         userLogged = user;
 
         loginButton.classList.add("hidden");
@@ -175,7 +188,7 @@ onAuthStateChanged(auth, async (user) => {
         username.classList.remove("hidden");
         username.classList.add("visible");
     } else {
-        cart = getMyCart();
+        cart = [];
         admin.classList.remove("visible");
         loginButton.classList.remove("hidden");
         logOutButton.classList.remove("visible");

@@ -10,8 +10,8 @@
 }
 
 body {
-  background: #E4E4E4;
-  font-family: 'Cantarell', sans-serif;
+  background: #e4e4e4;
+  font-family: "Cantarell", sans-serif;
   width: 100%;
   font-size: 18px;
   overflow-x: hidden;
@@ -22,28 +22,28 @@ body {
 
 header {
   max-width: 100% !important;
-  overflow-x: hidden  !important;
+  overflow-x: hidden !important;
 }
 
 h2 {
-  font-family: 'Cantarell', sans-serif;
+  font-family: "Cantarell", sans-serif;
   padding-top: 1em;
   padding-bottom: 0.75em;
-  color: #0B8C00;
+  color: #0b8c00;
   font-size: 24px;
   font-weight: 400;
 }
 
 h4 {
-  font-family: 'Cantarell', sans-serif;
+  font-family: "Cantarell", sans-serif;
   font-weight: 400;
   color: white;
   font-size: 20px;
 }
 
 a {
-  font-family: 'Open Sans', sans-serif;
-  color: #0B8C00;
+  font-family: "Open Sans", sans-serif;
+  color: #0b8c00;
   font-weight: 400;
   text-decoration: none;
   font-size: 0.75em;
@@ -54,13 +54,13 @@ ul {
 }
 
 p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75em;
   color: #555555;
 }
 
 label {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75em;
   color: #555555;
 }
@@ -85,7 +85,7 @@ label {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #FFF;
+  background-color: #fff;
   margin: 100px 100px 100px 10%;
   padding: 0px;
 }
@@ -121,32 +121,47 @@ label {
   margin-bottom: 30px;
 }
 
-.sign #logIn p, .sign #createProduct p, .sign #register p {
+.sign #logIn p,
+.sign #createProduct p,
+.sign #register p {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-.sign #logIn input[type=text], .sign #logIn input[type=password], .sign #logIn input[type=email], .sign #logIn input[type=number], .sign #createProduct input[type=text], .sign #createProduct input[type=password], .sign #createProduct input[type=email], .sign #createProduct input[type=number], .sign #register input[type=text], .sign #register input[type=password], .sign #register input[type=email], .sign #register input[type=number] {
+.sign #logIn input[type="text"],
+.sign #logIn input[type="password"],
+.sign #logIn input[type="email"],
+.sign #logIn input[type="number"],
+.sign #createProduct input[type="text"],
+.sign #createProduct input[type="password"],
+.sign #createProduct input[type="email"],
+.sign #createProduct input[type="number"],
+.sign #register input[type="text"],
+.sign #register input[type="password"],
+.sign #register input[type="email"],
+.sign #register input[type="number"] {
   border: none;
   border-bottom: 1px solid #555555;
   margin-bottom: 5px;
 }
 
-.sign #logIn input[type=submit], .sign #createProduct input[type=submit], .sign #register input[type=submit] {
-  font-family: 'Open Sans', sans-serif;
-  color: #0B8C00;
+.sign #logIn input[type="submit"],
+.sign #createProduct input[type="submit"],
+.sign #register input[type="submit"] {
+  font-family: "Open Sans", sans-serif;
+  color: #0b8c00;
   font-weight: 400;
   text-decoration: none;
   font-size: 0.75em;
   background-color: white;
-  border: 1px solid #4CAF50;
+  border: 1px solid #4caf50;
   width: 198px;
   height: 45px;
   margin-top: 10px;
 }
 
 #logOut {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: bold;
   color: white;
   padding: 15px;
@@ -156,7 +171,7 @@ label {
 }
 
 #logOut:hover {
-  color: #73ED6A;
+  color: #73ed6a;
   border: solid white;
   background-color: white;
 }
@@ -211,9 +226,9 @@ label {
 }
 
 .menu__logo--name {
-  font-family: 'Cantarell', sans-serif;
+  font-family: "Cantarell", sans-serif;
   font-weight: bold;
-  color: #0B8C00;
+  color: #0b8c00;
 }
 
 .menu__list {
@@ -240,17 +255,17 @@ label {
 
 .menu__item a {
   font-weight: bold;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .menu__item a:hover {
-  color: #73ED6A;
+  color: #73ed6a;
 }
 
 .menu__item--username {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: bold;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 15px;
 }
 
@@ -263,7 +278,7 @@ label {
 }
 
 .menu__item--button a {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: bold;
   color: white;
   padding: 15px;
@@ -291,7 +306,7 @@ label {
 }
 
 .landing--page__subtitle {
-  font-family: 'Cantarell', sans-serif;
+  font-family: "Cantarell", sans-serif;
   font-size: 18px;
   font-weight: bold;
   padding-top: 150px;
@@ -301,7 +316,7 @@ label {
 }
 
 .landing--page__highlight {
-  font-family: 'Cantarell', sans-serif;
+  font-family: "Cantarell", sans-serif;
   width: 80%;
   line-height: 97.2%;
   padding-left: 100px;
@@ -399,7 +414,7 @@ label {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #CEE6CC;
+  background-color: #cee6cc;
   height: 318px;
   width: 100%;
   max-width: 100vw;
@@ -511,7 +526,7 @@ label {
 }
 
 .product--page__highlight {
-  font-family: 'Cantarell', sans-serif;
+  font-family: "Cantarell", sans-serif;
   line-height: 97.2%;
   margin: 20% 10% 0 10%;
   font-size: 96px;
@@ -539,7 +554,7 @@ label {
   padding: 15px;
   display: block;
   width: 32%;
-  height: 100%;
+  height: 500px;
   text-decoration: none;
   margin: 20px 0px 20px 0px;
 }
@@ -570,13 +585,13 @@ label {
 .product__image {
   margin-top: 10px;
   width: 100%;
-  height: 287px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  height: 100%;
 }
 
 .product__description {
-  background-color: #FFF;
+  -webkit-box-shadow: 0px 20px 20px #55555550;
+          box-shadow: 0px 20px 20px #55555550;
+  background-color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -587,10 +602,64 @@ label {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+}
+
+.product__description figure {
+  position: relative;
+  overflow: hidden;
+}
+
+.product__description figure .product__phrase {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 1000ms ease-out;
+  transition: all 1000ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+}
+
+.product__description figure .product__phrase p {
+  font-size: 18px;
+  padding-left: 5%;
+  padding-right: 5%;
+  color: white;
 }
 
 .product__description:hover {
+  opacity: 1;
   background-color: #55555580;
+}
+
+.product__description:hover > .product__tag {
+  color: white;
+}
+
+.product__description:hover > .product__price {
+  color: white;
+}
+
+.product__description:hover > .product__name {
+  color: white;
+}
+
+.product__description:hover > figure .product__image {
+  opacity: 0.5;
+  -webkit-transform: scale(3);
+          transform: scale(3);
+}
+
+.product__description:hover > figure .product__phrase {
+  opacity: 1;
+  visibility: visible;
+}
+
+.product__description:hover > figure .product__phrase p {
+  margin-top: 0;
 }
 
 .product__thumbnail {
@@ -605,7 +674,7 @@ label {
   color: #555555;
   padding: 5px 10px;
   border-radius: 5px;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 .product__tag--best-seller {
@@ -625,14 +694,14 @@ label {
 
 .product__name {
   margin-top: 20px;
-  font-family: 'Cantarell', sans-serif;
-  color: #0B8C00;
+  font-family: "Cantarell", sans-serif;
+  color: #0b8c00;
   padding: 0px;
 }
 
 .product__cart {
   background-color: white;
-  color: #73ED6A;
+  color: #73ed6a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -640,7 +709,7 @@ label {
       -ms-flex-pack: center;
           justify-content: center;
   text-decoration: none;
-  border: solid #73ED6A;
+  border: solid #73ed6a;
   width: 235px;
   margin: 10px;
   margin-bottom: 40px;
@@ -652,21 +721,21 @@ label {
   color: #555555;
   border: none;
   background-color: white;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .product__cart-cart:hover {
-  color: #73ED6A;
+  color: #73ed6a;
 }
 
 .product__cart:hover {
   color: white;
-  background-color: #73ED6A;
+  background-color: #73ed6a;
 }
 
 .product__cart:disabled {
   color: white;
-  background-color: #73ED6A;
+  background-color: #73ed6a;
 }
 
 .product_a {
@@ -701,8 +770,25 @@ label {
   font-size: 24px;
 }
 
+.product_a .product__description {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.product_a .product__description:hover {
+  background-color: white;
+}
+
+.product_a .product__description:hover > .product__price {
+  color: #555555;
+}
+
+.product_a .product__description:hover > .product__name {
+  color: #0b8c00;
+}
+
 .total {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   text-align: center;
 }
 
@@ -745,28 +831,38 @@ label {
 }
 
 #autofill {
-  font-family: 'Open Sans', sans-serif;
-  color: #0B8C00;
+  font-family: "Open Sans", sans-serif;
+  color: #0b8c00;
   font-weight: 400;
   text-decoration: none;
   font-size: 0.75em;
   background-color: transparent;
-  border: 1px solid #0B8C00;
+  border: 1px solid #0b8c00;
   width: 220px;
   height: 45px;
   margin-top: 10px;
 }
 
-#checkout input[type=text] {
+#autofill:hover {
+  background-color: #0b8c00;
+  color: white;
+}
+
+#checkout input:hover[type="submit"] {
+  background-color: #0b8c00;
+  color: white;
+}
+
+#checkout input[type="text"] {
   border: none;
   background-color: transparent;
   border-bottom: 1px solid #555555;
   margin-bottom: 10px !important;
 }
 
-#checkout input[type=submit] {
-  font-family: 'Open Sans', sans-serif;
-  color: #0B8C00;
+#checkout input[type="submit"] {
+  font-family: "Open Sans", sans-serif;
+  color: #0b8c00;
   margin-bottom: 20px;
   font-weight: 400;
   text-decoration: none;
@@ -840,7 +936,7 @@ label {
 }
 
 #footer-email-btn {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: white;
   font-weight: 400;
   text-decoration: none;
@@ -858,19 +954,19 @@ label {
 }
 
 #footer-email::-webkit-input-placeholder {
-  color: #E4E4E4;
+  color: #e4e4e4;
 }
 
 #footer-email:-ms-input-placeholder {
-  color: #E4E4E4;
+  color: #e4e4e4;
 }
 
 #footer-email::-ms-input-placeholder {
-  color: #E4E4E4;
+  color: #e4e4e4;
 }
 
 #footer-email::placeholder {
-  color: #E4E4E4;
+  color: #e4e4e4;
 }
 
 @media screen and (max-width: 1061px) {
@@ -1001,7 +1097,7 @@ label {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #0B8C00;
+  background: #0b8c00;
   margin: -4px 0 0 -4px;
 }
 

@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
-import { getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
-import { getFirestore, doc, collection, getDoc, getDocs , setDoc} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+import { getFirestore, doc, collection, getDoc, getDocs, setDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -18,7 +18,7 @@ const getUserInfo = async (userId) => {
     try {
         const docRef = doc(db, "users", userId);
         const docSnap = await getDoc(docRef);
-        return docSnap.data();        
+        return docSnap.data();
     } catch (e) {
         console.log(e);
     }
@@ -32,7 +32,7 @@ const getFirebaseCart = async (userId) => {
         products: []
     }
 };
-  
+
 const spinner = document.getElementById("spinner");
 
 //Lectura de firebase
@@ -67,7 +67,7 @@ const getMyCart = () => {
 
 
 const addProductsCart = async (products) => {
-    await setDoc(doc(db,"cart",userLogged.uid),{
+    await setDoc(doc(db, "cart", userLogged.uid), {
         products
     });
 };
@@ -103,7 +103,6 @@ const productTemplate = (item) => {
 
     // Lógica para saber si un producto ya fue añadido al carrito
     // para deshabilitar el botón.
-    //console.log(cart);
     const isAdded = cart.some(productCart => productCart.id === item.id);
     let buttonHtml;
 
@@ -120,9 +119,14 @@ const productTemplate = (item) => {
     <div class="product__description">
         <h2 class="product__name">${item.name}</h2>
         ${tagHtml}
-        <img src="${item.image !== '' ? item.image : thumbnail}" alt="${item.name}" class="product__image">
-            <h3 class="product__price">$ ${item.price}</h3>
-            ${buttonHtml}
+        <figure>
+            <img src="${item.image !== '' ? item.image : thumbnail}" alt="${item.name}" class="product__image">
+                <div class="product__phrase">
+                    <p>${item.description}</p>
+                </div>
+        </figure>
+        <h3 class="product__price">$ ${item.price}</h3>
+        ${buttonHtml}
     </div>
     `;
 
@@ -149,10 +153,10 @@ const productTemplate = (item) => {
 
         cart.push(productAdded);
 
-        if(userLogged){
+        if (userLogged) {
             addProductsCart(cart);
         }
-        
+
         localStorage.setItem("cart", JSON.stringify(cart));
 
         // Deshabilito el botón
@@ -180,10 +184,10 @@ const loadProducts = () => {
         filteredProductsByCategory = products;
     }
 
-    if (order === "asc"){
+    if (order === "asc") {
         filteredProductsByCategory = filteredProductsByCategory.sort((a, b) => a.price - b.price);
     }
-    if (order === "desc"){
+    if (order === "desc") {
         filteredProductsByCategory = filteredProductsByCategory.sort((a, b) => b.price - a.price);
     }
 
@@ -208,7 +212,7 @@ logOutButton.addEventListener("click", e => {
 const logOut = async () => {
     try {
         await signOut(auth);
-        window.location ="./login.html";
+        window.location = "./login.html";
     } catch (e) {
         console.log(e);
     }
@@ -217,10 +221,10 @@ const logOut = async () => {
 const admin = document.getElementById("admin");
 
 onAuthStateChanged(auth, async (user) => {
-    if(user){
+    if (user) {
         //Los datos del firebase carrito
         const result = await getFirebaseCart(user.uid);
-        if(cart != null){
+        if (cart != null) {
             cart = result.products;
         }
         userLogged = user;
@@ -228,16 +232,16 @@ onAuthStateChanged(auth, async (user) => {
         //Los datos del firebase del usuario
         const userInfo = await getUserInfo(user.uid);
         username.innerHTML = userInfo.name;
-        if(userInfo.isAdmin == true){
+        if (userInfo.isAdmin == true) {
             admin.classList.add("visible");
-        } else if(userInfo.isAdmin == false){
-                admin.classList.remove("visible");
+        } else if (userInfo.isAdmin == false) {
+            admin.classList.remove("visible");
         }
         logOutButton.classList.add("visible");
-        username.classList.remove("hidden");  
+        username.classList.remove("hidden");
         username.classList.add("visible");
     } else {
-        cart = getMyCart();
+        cart = [];
         admin.classList.remove("visible");
         loginButton.classList.remove("hidden");
         logOutButton.classList.remove("visible");

@@ -445,7 +445,7 @@ label {
     padding: 15px;
     display: block;
     width: 32%;
-    height: 100%;
+    height: 500px;
     text-decoration: none;
     margin: 20px 0px 20px 0px;
 
@@ -466,19 +466,69 @@ label {
     }
 
     &__image {
+        //position: relative;
         margin-top: 10px;
         width: 100%;
-        height: 287px;
-        object-fit: contain;
+        height: 100%;
+        //object-fit: contain;
+        //overflow: hidden;
     }
 
     &__description {
+        box-shadow: 0px 20px 20px #55555550;
         background-color: #fff;
         display: flex;
         flex-direction: column;
         align-items: center;
+        transition: all 500ms ease-out;
+        //overflow: hidden;
+        //position: relative;
+
+        & figure {
+            position: relative;
+            overflow: hidden;
+        }
+
+        & figure .product__phrase {
+            position: absolute;
+            top: 80px;
+            width: 100%;
+            height: 100%;
+            transition: all 1000ms ease-out;
+            opacity: 0;
+            visibility: hidden;
+            text-align: center;
+            & p {
+                //margin-top: 80px;
+                font-size: 18px;
+                padding-left: 5%;
+                padding-right: 5%;
+                color: white;
+            }
+        }
         &:hover {
+            opacity: 1;
             background-color: $blackTransparent;
+            & > .product__tag {
+                color: white;
+            }
+            & > .product__price {
+                color: white;
+            }
+            & > .product__name {
+                color: white;
+            }
+            & > figure .product__image {
+                opacity: 0.5;
+                transform: scale(3);
+            }
+            & > figure .product__phrase {
+                opacity: 1;
+                visibility: visible;
+                & p {
+                    margin-top: 0;
+                }
+            }
         }
     }
 
@@ -586,6 +636,18 @@ label {
     .product__price {
         font-size: 24px;
     }
+    .product__description {
+        box-shadow: none;
+        &:hover {
+            background-color: white;
+            & > .product__price {
+                color: $black;
+            }
+            & > .product__name {
+                color: $green;
+            }
+        }
+    }
 }
 
 .total {
@@ -627,9 +689,17 @@ label {
     width: 220px;
     height: 45px;
     margin-top: $margin;
+    &:hover {
+        background-color: $green;
+        color: white;
+    }
 }
 
 #checkout {
+    & input:hover[type="submit"] {
+        background-color: $green;
+        color: white;
+    }
     & input[type="text"] {
         border: none;
         background-color: transparent;

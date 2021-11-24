@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
-import { getFirestore, doc, getDoc, addDoc, collection, deleteDoc, updateDoc, deleteField } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { getFirestore, doc, getDoc, addDoc, collection, setDoc, deleteDoc, updateDoc, deleteField } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -36,15 +36,27 @@ const getMyCart = () => {
 //Remove Cart datas
 const removeProduct = async (productId) => {
 
-    const cityRef = doc(db, 'cart', userLogged.uid);
+    const cart = getMyCart();
 
-    //Buscar una manera que encuentre el order osea, literalmente que me quede products/0: deleteField() para poder borrar estas vainas porque no me funcionan, además, me borran todo literalmente.
+    const newCart = cart.filter(product => product.id !== productId);
 
-    // await updateDoc(cityRef, {
-    //     products: deleteField()
-    // });
+    try {
+        if (newCart.length) {
+            await setDoc(doc(db, "cart", userLogged.uid), {
+                products: newCart
+            });
+        } else {
 
-    renderMyCart(cart);
+            await deleteDoc(doc(db, "cart", userLogged.uid));
+        }
+    } catch (e) {
+        console.log(e);
+    }
+
+
+    localStorage.setItem("cart", JSON.stringify(newCart));
+
+    renderMyCart(newCart);
 
 };
 
@@ -206,7 +218,7 @@ onAuthStateChanged(auth, async (user) => {
         username.classList.add("visible");
 
     } else {
-        cart = getMyCart();
+        cart = [];
         admin.classList.remove("visible");
         logOutButton.classList.remove("visible");
         loginButton.classList.remove("hidden");
