@@ -579,6 +579,8 @@ label {
 }
 
 .product--cart {
+  -webkit-box-shadow: 0px 20px 20px #55555550;
+          box-shadow: 0px 20px 20px #55555550;
   background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
