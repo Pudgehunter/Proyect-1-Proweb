@@ -181,7 +181,8 @@ label {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-
+    z-index: 10;
+    
     &__close {
         display: none;
     }
@@ -417,6 +418,7 @@ label {
     justify-content: space-between;
     padding-left: 15px;
     padding-right: 15px;
+    margin-top: 30px;
     margin-left: 60px;
     margin-right: 60px;
     flex-direction: row;
@@ -445,6 +447,7 @@ label {
     flex-wrap: wrap;
     margin-left: 60px;
     margin-right: 60px;
+    margin-bottom: 60px;
     align-items: center;
     justify-content: space-between;
 }
@@ -495,6 +498,7 @@ label {
 
         & figure {
             position: relative;
+            z-index: 1;
             overflow: hidden;
         }
 
