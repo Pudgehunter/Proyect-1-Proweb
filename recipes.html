@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magokoro-logIn</title>
-    <!--Google Styles-->
-    <!--Cantarell-->
+    <title>Recetas</title>
     <!--Open Sans-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,51 +73,43 @@
         </nav>
     </header>
 
+    <script src="js/three.js"></script>
+    <script>
+        // Our Javascript will go here.
+        const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-    <section class="sign">
-        <img class="sign__image" src="./img/login.jpg" alt="">
-        <div class="sign__text">
-            <h2>Ingresar</h2>
-            <div class="sign__text--subtitle">
-                <p>¿No tienes cuenta? </p><a href="./register.html">Crear usuario</a>
-            </div>
-            <form action="" id="logIn" class="auth">
-                <p>Correo electronico</p>
-                <p><input type="email" name="email" placeholder=""></p>
-                <p>Contraseña</p>
-                <p><input type="password" name="password" placeholder=""></p>
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
 
-                <input type="submit" value="Ingresar">
-            </form>
+			const geometry = new THREE.BoxGeometry();
+			const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			const cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
 
-        </div>
-    </section>
+			camera.position.z = 5;
 
-    <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__container-heading footer-1">
-                <h4>Sobre nosotros</h4>
-                <a href="#">Sobre nosotros</a>
-                <a href="#">Productos</a>
-                <a href="#">Tu carrito</a>
-                <a href="#">Terminos y condiciones</a>
-            </div>
-            <div class="footer__container-heading footer-2">
-                <h4>Contáctanos</h4>
-                <a href="#"><img src="./img/icons/call.png">+573137782524</a>
-                <a href="#"><img src="./img/icons/mail.png">granjamagokoro@gmail.com</a>
-            </div>
-            <div class="footer-email-form">
-                <h4>Subscribete para las últimas ofertas</h4>
-                <input type="email" id="footer-email" placeholder="Tu email">
-                <input type="submit" value="Sign up" id="footer-email-btn">
-            </div>
-        </div>
-        <h4 class="text-center">©2020 Magokoro.</h4>
-    </footer>
+			const animate = function () {
+				requestAnimationFrame( animate );
 
-    <script src="./js/utils.js"></script>
-    <script type="module" src="./js/fbAuthLogin.js"></script>
+				cube.rotation.x += 0.01;
+				cube.rotation.y += 0.01;
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+    </script>
+    <script type="module">
+
+        // Find the latest version by visiting https://cdn.skypack.dev/three.
+      
+        import * as THREE from 'https://cdn.skypack.dev/three@<version>';
+      
+        const scene = new THREE.Scene();
+      
+      </script>
 </body>
 
 </html>
