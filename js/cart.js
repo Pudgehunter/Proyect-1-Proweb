@@ -39,7 +39,7 @@ const removeProduct = async (productId) => {
     const cart = getMyCart();
 
     const newCart = cart.filter(product => product.id !== productId);
-
+    
     try {
         if (newCart.length) {
             await setDoc(doc(db, "cart", userLogged.uid), {
@@ -204,6 +204,7 @@ onAuthStateChanged(auth, async (user) => {
         //Los datos del firebase carrito
         const result = await getFirebaseCart(user.uid);
         cart = result.products;
+
         renderMyCart(cart);
 
         const userInfo = await getUserInfo(user.uid);
