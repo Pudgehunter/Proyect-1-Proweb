@@ -742,6 +742,26 @@ label {
   background-color: #73ed6a;
 }
 
+.cupcake {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.cupcake:hover {
+  opacity: 1;
+  background-color: #55555580;
+}
+
+.cupcake:hover > .phrase {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cupcake:hover > .phrase p {
+  margin-top: 0;
+}
+
 .models {
   display: -webkit-box;
   display: -ms-flexbox;

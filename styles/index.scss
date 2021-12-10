@@ -111,7 +111,7 @@ label {
             display: flex;
             flex-direction: row;
             margin-bottom: 30px;
-            & a:hover{
+            & a:hover {
                 color: $blue;
             }
         }
@@ -143,7 +143,7 @@ label {
             height: 45px;
             margin-top: $margin;
         }
-        & input:hover[type="submit"]{
+        & input:hover[type="submit"] {
             color: white;
             background-color: $green;
         }
@@ -182,7 +182,7 @@ label {
     justify-content: space-between;
     width: 100%;
     z-index: 10;
-    
+
     &__close {
         display: none;
     }
@@ -372,8 +372,6 @@ label {
         }
     }
 }
-
-
 
 .swiper {
     &-container {
@@ -621,6 +619,23 @@ label {
     }
 }
 
+.cupcake {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    &:hover {
+        opacity: 1;
+        background-color: $blackTransparent;
+        & > .phrase {
+            opacity: 1;
+            visibility: visible;
+            & p {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
 .models {
     display: flex;
     flex-direction: column;
@@ -633,7 +648,7 @@ label {
         position: relative;
         z-index: 1;
         overflow: hidden;
-        &:hover{
+        &:hover {
             opacity: 1;
             background-color: $blackTransparent;
             & > .models__phrase {
@@ -664,8 +679,7 @@ label {
     }
 
     &__item {
-        &:hover{
-            
+        &:hover {
         }
     }
 }
@@ -873,7 +887,7 @@ label {
             width: 100%;
         }
     }
-    .payment{
+    .payment {
         width: 60%;
     }
 }
