@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stylized frying pan
+* source:	https://sketchfab.com/3d-models/stylized-frying-pan-1001e27e43c04dda8d0f304dd4582202
+* author:	Miroshkins (https://sketchfab.com/miroshkins)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stylized frying pan" (https://sketchfab.com/3d-models/stylized-frying-pan-1001e27e43c04dda8d0f304dd4582202) by Miroshkins (https://sketchfab.com/miroshkins) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
