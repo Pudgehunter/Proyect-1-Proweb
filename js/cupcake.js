@@ -7,11 +7,11 @@ import { OrbitControls } from 'https://cdn.skypack.dev/three@0.135.0/examples/js
 // Our Javascript will go here.
 const scene = new THREE.Scene();
 scene.background = new THREE.Color( 0xbfe3dd );
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
 //camera.position.set = (0.025,0.025,0.025);
 camera.position.x = 0;
-camera.position.y = 0;
-camera.position.z = 5;
+camera.position.y = 3;
+camera.position.z = 6;
 scene.add(camera);
 
 const renderer = new THREE.WebGLRenderer();
@@ -34,10 +34,11 @@ const controls = new OrbitControls( camera, renderer.domElement );
 
 let rice;
 
-loader.load( 'models/onigiris/scene.gltf', function (gltf) {
+loader.load( 'models/cupcake/cupcake.gltf', function (gltf) {
 
     //console.log(gltf);
     rice = gltf.scene;
+	//rice.scale.set(0.7, 0.7, 0.7);
 	scene.add( rice );
 
 }, undefined, function ( error ) {
@@ -49,8 +50,13 @@ loader.load( 'models/onigiris/scene.gltf', function (gltf) {
 function animate(){
     requestAnimationFrame(animate);
 
-    rice.rotation.x += 0.01;
-	rice.rotation.y += 0.01;
+	rice.rotation.x += 0.001;
+    rice.rotation.z += 0.001;
+	rice.rotation.y += 0.001;
+
+	// rice.rotation.x += 1;
+    // rice.rotation.z += 1;
+	// rice.rotation.y += 1;
     controls.update();
 
     renderer.render(scene, camera);
