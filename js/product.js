@@ -8,6 +8,8 @@ const auth = getAuth();
 
 let userLogged = null;
 let cart = [];
+let getProductAll;
+let productIdAll;
 
 //Función para agregar carrito
 const addProductsCart = async (products) => {
@@ -42,6 +44,7 @@ const getProduct = async () => {
     const url = window.location.search;
     const searchParams = new URLSearchParams(url);
     const productId = searchParams.get("id");
+    productIdAll = productId;
 
     const docRef = doc(db, "products", productId);
     const docSnap = await getDoc(docRef);
@@ -58,7 +61,12 @@ const getProduct = async () => {
     }
 
     loadProductInfo(data);
+    getProductAll = data;
+
+    
 }
+
+
 
 //const product = products.find(product => product.id == productId);
 const productSection = document.getElementById("product");
@@ -114,21 +122,22 @@ productCartButton.addEventListener("click", async e => {
     // Dirigirme a otra página (enlace - a) && Refrescar la página (form)
     e.preventDefault();
 
-    const url = window.location.search;
-    const searchParams = new URLSearchParams(url);
-    const productId = searchParams.get("id");
+    // const url = window.location.search;
+    // const searchParams = new URLSearchParams(url);
+    // const productId = searchParams.get("id");
 
-    const docRef = doc(db, "products", productId);
-    const docSnap = await getDoc(docRef);
-    const data = docSnap.data();
+    // const docRef = doc(db, "products", productId);
+    // const docSnap = await getDoc(docRef);
+    // const data = docSnap.data();
 
-    
+    //console.log(productIdAll);
 
     const productAdded = {
-        id: productId,
-        name: data.name,
-        image: data.image,
-        price: data.price
+        //...getProduct()
+        id: productIdAll,
+        name: getProductAll.name,
+        image: getProductAll.image,
+        price: getProductAll.price
     };
 
     cart.push(productAdded);
@@ -145,6 +154,7 @@ productCartButton.addEventListener("click", async e => {
 
 
 getProduct();
+
 
 const logOutButton = document.getElementById("logOut");
 

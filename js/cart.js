@@ -227,7 +227,7 @@ onAuthStateChanged(auth, async (user) => {
         username.classList.add("visible");
 
     } else {
-        cart = [];
+        cart = getMyCart();
         admin.classList.remove("visible");
         logOutButton.classList.remove("visible");
         loginButton.classList.remove("hidden");
